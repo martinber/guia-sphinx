@@ -37,19 +37,39 @@ cuando se usa *SSH*, por eso más abajo usé la URL que empieza con ``git@``
     git remote add origin git@github.com:usuario/proyecto.git # indicar URL de GitHub
 
     # antes de continuar es necesario ya tener la documentación generada
+    cd docs
+    make html
+    cd ../
 
     git add -A # agregar todos los cambios al commit
     git commit -m "commit inicial" # crear commit
     git push -u origin master # subir cambios
 
     # ahora subiremos al directorio con los documentos html como una branch llamada gh-pages
-    git subtree push --prefix ./docs/build/html origin gh-pages 
+    git subtree push --prefix docs/build/html origin gh-pages
 
+En este momento ya se puede ingresar a https://usuario.github.io/proyecto/ y se
+debería ver la documentación de nuestro proyecto.
 
+Actualizar documentación
+------------------------
 
+Cuando se quiera actualizar la documentación, se debe generar nuevamente con
+``make html`` y repetir los últimos comandos.
 
-Actualizar documentanción
--------------------------
+.. code:: sh
+
+    cd docs
+    make html
+    cd ../
+
+    git add -A # agregar todos los cambios al commit
+    git commit -m "cambios realizados" # crear commit
+    git push origin master # subir cambios
+
+    # actualizar la branch gh-pages
+    git subtree push --prefix docs/build/html origin gh-pages
+
 
 .. _GitHub: https://github.com/
 .. _GitLab: https://gitlab.com/

@@ -1,4 +1,4 @@
-Escribir la documentación 
+Escribir la documentación
 =========================
 
 Se escribe en los archivos ``.rst`` ubicados en ``docs/source/``. Cada página se
@@ -37,7 +37,7 @@ configuración, en este caso elegimos ``index.rst``. El archivo se ve así::
   * :ref:`modindex`
   * :ref:`search`
 
-Como lo indica el cometario, la página principal debe tener una tabla de
+Como lo indica el comentario, la página principal debe tener una tabla de
 contenidos (la directiva ``.. toctree::``). Los índices que están abajo son
 opcionales, el único que me parece útil de los tres es el de búsqueda
 (``search``) pero si usamos el tema *Read the docs* no es necesario porque ya
@@ -107,7 +107,10 @@ Normalmente la directiva va justo debajo del título de la página.
 Para un tutorial de *reStructuredText* se puede ver `el que ofrece la
 documentación de Sphinx <http://www.sphinx-doc.org/en/stable/rest.html>`_.
 
-También se puede ver el código fuente de esta guía como ejemplo. TODO
+También se puede ver el `código fuente de esta guía como ejemplo`__.
+
+__ Repositorio_
 
 .. _APIdoc: http://www.sphinx-doc.org/en/stable/man/sphinx-apidoc.html
 .. _reStructuredText: http://docutils.sourceforge.net/rst.html
+.. _Repositorio: https://github.com/martinber/guia-sphinx

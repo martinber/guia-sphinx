@@ -7,6 +7,7 @@ Guía de Sphinx
 
    instalacion
    escribir
+   publicar
    codigo_fuente/ejemplos
    ejemplo_jerarquia/ej1
 
@@ -21,8 +22,11 @@ Como ejemplo hay código fuente documentado automáticamente a partir de los
 *docstrings* y hay varias páginas que muestran cómo hacer una jerarquía en el
 árbol de contenidos.
 
-Esta guía está escrita usando *Sphinx* así que la idea es ver el código fuente
-de todo esto. TODO
+Esta guía está escrita usando *Sphinx* así que la idea es ver el `código fuente
+de todo esto`__. Al ver los ``.rst`` desde *GitHub*, es necesario apretar el
+botón *Raw* para verlos en texto plano.
+
+__ Repositorio_
 
 Glosario
 --------
@@ -40,6 +44,9 @@ Las cosas que se usan para hacer esto son:
 * **reStructuredText**: Es un lenguaje de marcado, especifica como crear
   títulos, listas, tablas, cómo insertar imagenes, etc.
 
-* **GitHub**: Es un sitio TODO
+* **GitHub**: Es un sitio web que hostea sobre todo proyectos de software libre
+  de forma gratuita. Permite hostear una web estática para cada proyecto, que
+  viene perfecto para la documentación generada con **Sphinx**.
 
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/
+.. _Repositorio: https://github.com/martinber/guia-sphinx
