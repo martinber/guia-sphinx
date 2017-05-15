@@ -1,0 +1,112 @@
+Escribir la documentación 
+=========================
+
+Se escribe en los archivos ``.rst`` ubicados en ``docs/source/``. Cada página se
+escribe en un archivo separado. Y cada página puede importar documentación desde
+*docstrings* del código.
+
+Uno puede crear los ``.rst`` manualmente o sino es posible generarlos a partir
+del código fuente utilizando un programa llamado `APIdoc`_, el problema es que
+*APIdoc* genera demasiadas páginas, conviene crear los ``.rst`` manualmente.
+
+Acá explico como crear las páginas manualmente. La documentacíon se escribe con
+formato `reStructuredText`_.
+
+Página principal
+----------------
+
+*Sphinx* crea automáticamente la página principal con el nombre dado en la
+configuración, en este caso elegimos ``index.rst``. El archivo se ve así::
+
+  .. Guia Sphinx documentation master file, created by
+     sphinx-quickstart on Thu May 11 20:34:32 2017.
+     You can adapt this file completely to your liking, but it should at least
+     contain the root `toctree` directive.
+
+  Welcome to Guia Sphinx's documentation!
+  =======================================
+
+  .. toctree::
+     :maxdepth: 2
+     :caption: Contents:
+
+  Indices and tables
+  ==================
+
+  * :ref:`genindex`
+  * :ref:`modindex`
+  * :ref:`search`
+
+Como lo indica el cometario, la página principal debe tener una tabla de
+contenidos (la directiva ``.. toctree::``). Los índices que están abajo son
+opcionales, el único que me parece útil de los tres es el de búsqueda
+(``search``).
+
+En la tabla de contenidos deben especificarse las páginas que uno quiera
+agregar dando el nombre de archivo sin la extensión. Por ejemplo::
+
+  .. toctree::
+     :maxdepth: 3
+     :caption: Contenidos:
+
+     instalacion
+     escribir
+     codigo_fuente/ejemplos
+     ejemplo_jerarquia/ej1
+
+Todas páginas deben ser agregadas manualmente, *Sphinx* muestra una advertencia
+cuando hay paginas inaccesibles debido que no han sido agregadas a ningún
+índice. Cada página puede tener si propia tabla de contenidos para así crear un
+árbol jerárquico de páginas.
+
+Los títulos de cada documento sí son incluidos automáticamente a la tabla de
+contenidos.
+
+En el caso de usar carpetas para ordenar los documentos, no se ve reflejado en
+el árbol de contenidos. Pero sí debe especificarse la ruta relativa al documento
+como se ve en el ejemplo de arriba.
+
+Otras páginas
+-------------
+
+Las páginas tienen un título principal que será mostrado en la tabla de
+contenidos, y pueden tener su propia tabla de contenidos que será insertada en
+la que tiene la página principal.
+
+En `reStructuredText`_ los títulos se indican con subrayados, la jerarquía de
+subrayados depende del orden en que fueron definidos en el archivo. El orden
+más común (el usado por la documentación de *Sphinx*) es::
+
+  Título de página
+  ================
+
+  Título 1
+  --------
+
+  Título 2
+  ~~~~~~~~
+
+  Título 3
+  ^^^^^^^^
+
+  Título 4
+  """"""""
+
+Se puede incluir una tabla de contenidos para agregar páginas que estarán debajo
+de este documento en la jerarquía, en la directiva no se incluye la opción
+``:caption:`` y ``:maxdepth:`` es opcional::
+
+  .. toctree::
+
+     pagina1
+     pagina2
+
+Normalmente la directiva va justo debajo del título de la página.
+
+Para un tutorial de *reStructuredText* se puede ver `el que ofrece la
+documentación de Sphinx <http://www.sphinx-doc.org/en/stable/rest.html>`_.
+
+También se puede ver el código fuente de esta guía como ejemplo. TODO
+
+.. _APIdoc: http://www.sphinx-doc.org/en/stable/man/sphinx-apidoc.html
+.. _reStructuredText: http://docutils.sourceforge.net/rst.html
