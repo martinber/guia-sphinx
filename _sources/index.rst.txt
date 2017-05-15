@@ -10,8 +10,6 @@ Guía de Sphinx
    codigo_fuente/ejemplos
    ejemplo_jerarquia/ej1
 
-* :ref:`search`
-
 Introducción
 ------------
 
@@ -41,5 +39,7 @@ Las cosas que se usan para hacer esto son:
 
 * **reStructuredText**: Es un lenguaje de marcado, especifica como crear
   títulos, listas, tablas, cómo insertar imagenes, etc.
+
+* **GitHub**: Es un sitio TODO
 
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/
