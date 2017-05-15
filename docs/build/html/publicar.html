@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Publicar en GitHub &mdash; documentación de Guia Sphinx - 1.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="genindex.html"/>
+        <link rel="search" title="Búsqueda" href="search.html"/>
+    <link rel="top" title="documentación de Guia Sphinx - 1.0" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Guia Sphinx
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenidos:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="instalacion.html">Instalación y configuración</a></li>
+<li class="toctree-l1"><a class="reference internal" href="escribir.html">Escribir la documentación</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Guia Sphinx</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Publicar en GitHub</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/publicar.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="publicar-en-github">
+<h1>Publicar en GitHub<a class="headerlink" href="#publicar-en-github" title="Enlazar permanentemente con este título">¶</a></h1>
+<p><a class="reference external" href="https://github.com/">GitHub</a> es un sitio web que hostea sobre todo proyectos de software libre de
+forma gratuita. Una alternativa similar es <a class="reference external" href="https://gitlab.com/">GitLab</a>, aunque voy a usar
+<a class="reference external" href="https://github.com/">GitHub</a> porque es más conocido.</p>
+<p>La función principal de ambos es hostear repositorios <a class="reference external" href="https://git-scm.com/">Git</a>, pero agregan más
+funciones como <em>Wikis</em>, <em>Issues</em>, y además permiten hostear una pagina web
+estática para el proyecto que en este caso va a ser la documentación generada
+con <a class="reference external" href="http://www.sphinx-doc.org/en/stable/">Sphinx</a>.</p>
+<p>La funcionalidad del hosteo de sitios web se llama <a class="reference external" href="https://pages.github.com/">GitHub Pages</a>. Se necesita
+saber algo sobre <a class="reference external" href="https://git-scm.com/">Git</a>, y hay varias formas de publicar el sitio web estático.
+Para este caso creo que lo mejor es poner los archivos <code class="docutils literal"><span class="pre">html</span></code> generados en una
+<em>branch</em> llamada <code class="docutils literal"><span class="pre">github-pages</span></code> usando <code class="docutils literal"><span class="pre">git</span> <span class="pre">subtree</span></code>.</p>
+<div class="section" id="por-primera-vez">
+<h2>Por primera vez<a class="headerlink" href="#por-primera-vez" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Primero se puede crear el repositorio en <a class="reference external" href="https://github.com/">GitHub</a>, luego creamos el repositorio
+en nuestra PC y subimos el código.</p>
+<p>Al crear el repositorio se muestra una dirección que se debe usar para subir los
+cambios. Si se usa la dirección que empieza con <code class="docutils literal"><span class="pre">https://</span></code> hay que poner la
+contraseña de <em>GitHub</em> cada vez que se suban modificaciones, si se usa la
+dirección que empieza con <code class="docutils literal"><span class="pre">git&#64;</span></code> previamente hay que agregar la clave
+pública de <em>SSH</em> de la PC a la cuenta de <em>GitHub</em>. Yo voy mostrar un ejemplo de
+cuando se usa <em>SSH</em>, por eso más abajo usé la URL que empieza con <code class="docutils literal"><span class="pre">git&#64;</span></code></p>
+<div class="code sh highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">git</span> <span class="c1"># instalar git</span>
+<span class="n">cd</span> <span class="n">proyecto</span> <span class="c1"># ir a la raíz del proyecto</span>
+
+<span class="n">git</span> <span class="n">init</span> <span class="c1"># inicializar el repositorio git</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">usuario</span><span class="o">/</span><span class="n">proyecto</span><span class="o">.</span><span class="n">git</span> <span class="c1"># indicar URL de GitHub</span>
+
+<span class="c1"># antes de continuar es necesario ya tener la documentación generada</span>
+
+<span class="n">git</span> <span class="n">add</span> <span class="o">-</span><span class="n">A</span> <span class="c1"># agregar todos los cambios al commit</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;commit inicial&quot;</span> <span class="c1"># crear commit</span>
+<span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">master</span> <span class="c1"># subir cambios</span>
+
+<span class="c1"># ahora subiremos al directorio con los documentos html como una branch llamada gh-pages</span>
+<span class="n">git</span> <span class="n">subtree</span> <span class="n">push</span> <span class="o">--</span><span class="n">prefix</span> <span class="o">./</span><span class="n">docs</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="n">html</span> <span class="n">origin</span> <span class="n">gh</span><span class="o">-</span><span class="n">pages</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="actualizar-documentancion">
+<h2>Actualizar documentanción<a class="headerlink" href="#actualizar-documentancion" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Martín Bernardi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
