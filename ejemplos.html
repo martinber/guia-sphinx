@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Búsqueda &mdash; documentación de Guia Sphinx - 1.0</title>
+  <title>Ejemplos &mdash; documentación de Guia Sphinx - 1.0</title>
   
 
   
@@ -34,8 +34,10 @@
   
         <link rel="index" title="Índice"
               href="genindex.html"/>
-        <link rel="search" title="Búsqueda" href="#"/>
-    <link rel="top" title="documentación de Guia Sphinx - 1.0" href="index.html"/> 
+        <link rel="search" title="Búsqueda" href="search.html"/>
+    <link rel="top" title="documentación de Guia Sphinx - 1.0" href="index.html"/>
+        <link rel="next" title="miproyecto" href="src/miproyecto.html"/>
+        <link rel="prev" title="Publicar en GitHub" href="publicar.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -71,7 +73,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -89,11 +91,11 @@
             
             
               <p class="caption"><span class="caption-text">Contenidos:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="instalacion.html">Instalación y configuración</a></li>
 <li class="toctree-l1"><a class="reference internal" href="escribir.html">Escribir la documentación</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publicar.html">Publicar en GitHub</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejemplos.html">Ejemplos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ejemplos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="src/miproyecto.html">miproyecto</a></li>
 </ul>
 
@@ -139,10 +141,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Búsqueda</li>
+      <li>Ejemplos</li>
     
     
       <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ejemplos.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -154,19 +160,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="ejemplos">
+<h1>Ejemplos<a class="headerlink" href="#ejemplos" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Como ejemplo, se puede ver el <a class="reference external" href="https://github.com/martinber/guia-sphinx">código fuente de esta guía</a>.</p>
+<p>Lo que es útil mirar es:</p>
+<ul class="simple">
+<li>Cómo configurar <em>Sphinx</em> mirando <code class="docutils literal"><span class="pre">docs/source/conf.py</span></code>.</li>
+<li>Cómo escribir en <em>reStructuredText</em> mirando los <code class="docutils literal"><span class="pre">.rst</span></code> ubicados en
+<code class="docutils literal"><span class="pre">docs/source/</span></code>.</li>
+<li>Cómo incluir documentación desde <em>docstrings</em> mirando <code class="docutils literal"><span class="pre">docs/source/src/</span></code>.</li>
+<li>Cómo escribir los <em>docstrings</em> mirando los <code class="docutils literal"><span class="pre">.py</span></code> en <code class="docutils literal"><span class="pre">miproyecto/</span></code></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Al ver los <code class="docutils literal"><span class="pre">.rst</span></code> desde <em>GitHub</em>, es necesario apretar el botón <em>Raw</em> para
+verlos en texto plano.</p>
+</div>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            <div class="articleComments">
@@ -174,6 +185,15 @@
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="src/miproyecto.html" class="btn btn-neutral float-right" title="miproyecto" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="publicar.html" class="btn btn-neutral" title="Publicar en GitHub" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -213,7 +233,6 @@
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
       <script type="text/javascript" src="_static/translations.js"></script>
-      <script type="text/javascript" src="_static/searchtools.js"></script>
 
   
 
@@ -229,14 +248,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>

@@ -105,6 +105,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="escribir.html">Escribir la documentación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publicar.html">Publicar en GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejemplos.html">Ejemplos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/miproyecto.html">miproyecto</a></li>
 </ul>
 
             
@@ -187,7 +190,7 @@ final queda algo igual a esto que estás leyendo.</p>
 │       └── index.rst
 ├── LICENSE.txt
 ├── README.md
-└── src
+└── miproyecto
     ├── ...
     └── main.py
 </pre></div>
@@ -198,7 +201,7 @@ final queda algo igual a esto que estás leyendo.</p>
 <code class="docutils literal"><span class="pre">conf.py</span></code> con las configuraciones usadas por <a class="reference external" href="http://www.sphinx-doc.org/en/stable/">Sphinx</a>.  Dentro de <code class="docutils literal"><span class="pre">build</span></code>
 está la misma documentación ya generada por <a class="reference external" href="http://www.sphinx-doc.org/en/stable/">Sphinx</a>. Por último el
 <code class="docutils literal"><span class="pre">Makefile</span></code> permite generar la documentación con un solo comando.</p>
-<p>Después en otra carpeta aparte, <code class="docutils literal"><span class="pre">src</span></code> está el código. <code class="docutils literal"><span class="pre">LICENSE.txt</span></code> y
+<p>Después en otra carpeta aparte, <code class="docutils literal"><span class="pre">miproyecto</span></code> está el código. <code class="docutils literal"><span class="pre">LICENSE.txt</span></code> y
 <code class="docutils literal"><span class="pre">README.md</span></code> se suelen agregar para presentar el proyecto en <a class="reference external" href="https://github.com/">GitHub</a>.</p>
 <div class="section" id="instalacion">
 <h2>Instalación<a class="headerlink" href="#instalacion" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -248,7 +251,7 @@ falta ninguna de esas.</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">githubpages:</span> <span class="pre">create</span> <span class="pre">.nojekyll</span> <span class="pre">file</span> <span class="pre">to</span> <span class="pre">publish</span> <span class="pre">the</span> <span class="pre">document</span> <span class="pre">on</span> <span class="pre">GitHub</span> <span class="pre">pages</span>
 <span class="pre">(y/n)</span> <span class="pre">[n]</span></code>: Esta extensión se debe usar en el caso que se quiera publicar la
-documentación generada por GitHub Pages.</li>
+documentación generada en <em>GitHub Pages</em>.</li>
 <li><code class="docutils literal"><span class="pre">Create</span> <span class="pre">Makefile?</span> <span class="pre">(y/n)</span> <span class="pre">[y]</span></code>: Si se desea crear un <code class="docutils literal"><span class="pre">Makefile</span></code> para
 simplificar la generación de la documentación en Linux. Elegir <code class="docutils literal"><span class="pre">y</span></code>.</li>
 <li><code class="docutils literal"><span class="pre">Create</span> <span class="pre">Makefile?</span> <span class="pre">(y/n)</span> <span class="pre">[y]</span></code>: Si se desea crear un <code class="docutils literal"><span class="pre">make.bat</span></code> para
@@ -327,7 +330,7 @@ tema a usar buscando la línea correcta y cambiando por:</p>
 </pre></div>
 </div>
 <p>Por último, la extensión <em>napoleon</em> lleva algunas configuraciones más. Al final
-se pueden agregar las líneas:</p>
+se pueden agregar estas líneas que me parecen bastante bien para empezar:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">napoleon_google_docstring</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">napoleon_numpy_docstring</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">napoleon_include_init_with_doc</span> <span class="o">=</span> <span class="kc">False</span>
