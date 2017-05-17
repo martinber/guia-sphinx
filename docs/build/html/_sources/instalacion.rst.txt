@@ -39,7 +39,7 @@ Instalación
 -----------
 
 Hay que instalar `Sphinx`_ y algún tema si hace falta. El tema que más me gusta
-es el del proyecto `Read The Docs`_.
+es el del proyecto `Read the Docs`_.
 
 ::
 
@@ -204,6 +204,6 @@ se pueden agregar estas líneas que me parecen bastante bien para empezar::
 
 
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/
-.. _Read The Docs: https://readthedocs.org/
+.. _Read the Docs: https://readthedocs.org/
 .. _reStructuredText: http://docutils.sourceforge.net/rst.html
 .. _GitHub: https://github.com/

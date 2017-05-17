@@ -44,7 +44,7 @@ configuración, en este caso elegimos ``index.rst``. El archivo se ve así::
 Como lo indica el comentario, la página principal debe tener una tabla de
 contenidos (la directiva ``.. toctree::``). Los índices que están abajo son
 opcionales, el único que me parece útil de los tres es el de búsqueda
-(``search``) pero si usamos el tema *Read The Docs* no es necesario porque ya
+(``search``) pero si usamos el tema *Read the Docs* no es necesario porque ya
 hay un campo de búsqueda en la barra lateral.
 
 En la tabla de contenidos deben especificarse las páginas que uno quiera
