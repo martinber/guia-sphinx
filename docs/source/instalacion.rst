@@ -20,7 +20,7 @@ Como estructura de archivos, me parece que lo mejor es::
   │       └── index.rst
   ├── LICENSE.txt
   ├── README.md
-  └── src
+  └── miproyecto
       ├── ...
       └── main.py
 
@@ -32,7 +32,7 @@ En ``docs`` va toda la documentación, dentro hay un ``Makefile`` y las carpetas
 está la misma documentación ya generada por `Sphinx`_. Por último el
 ``Makefile`` permite generar la documentación con un solo comando.
 
-Después en otra carpeta aparte, ``src`` está el código. ``LICENSE.txt`` y
+Después en otra carpeta aparte, ``miproyecto`` está el código. ``LICENSE.txt`` y
 ``README.md`` se suelen agregar para presentar el proyecto en `GitHub`_.
 
 Instalación
@@ -99,7 +99,7 @@ falta ninguna de esas.
 
 * ``githubpages: create .nojekyll file to publish the document on GitHub pages
   (y/n) [n]``: Esta extensión se debe usar en el caso que se quiera publicar la
-  documentación generada por GitHub Pages.
+  documentación generada en *GitHub Pages*.
 
 * ``Create Makefile? (y/n) [y]``: Si se desea crear un ``Makefile`` para
   simplificar la generación de la documentación en Linux. Elegir ``y``.
@@ -188,7 +188,7 @@ tema a usar buscando la línea correcta y cambiando por::
   html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 Por último, la extensión *napoleon* lleva algunas configuraciones más. Al final
-se pueden agregar las líneas::
+se pueden agregar estas líneas que me parecen bastante bien para empezar::
 
   napoleon_google_docstring = True
   napoleon_numpy_docstring = True

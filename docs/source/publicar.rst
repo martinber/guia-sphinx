@@ -19,12 +19,12 @@ Por primera vez
 ---------------
 
 Primero se puede crear el repositorio en `GitHub`_, luego creamos el repositorio
-en nuestra PC y subimos el código.
+*Git* en nuestra PC y subimos el código.
 
-Al crear el repositorio se muestra una dirección que se debe usar para subir los
-cambios. Si se usa la dirección que empieza con ``https://`` hay que poner la
-contraseña de *GitHub* cada vez que se suban modificaciones, si se usa la
-dirección que empieza con ``git@`` previamente hay que agregar la clave
+Al crear el repositorio en *GitHub* se muestra una dirección que se debe usar
+para subir los cambios. Si se usa la dirección que empieza con ``https://`` hay
+que poner la contraseña de *GitHub* cada vez que se suban modificaciones, si se
+usa la dirección que empieza con ``git@`` previamente hay que agregar la clave
 pública de *SSH* de la PC a la cuenta de *GitHub*. Yo voy mostrar un ejemplo de
 cuando se usa *SSH*, por eso más abajo usé la URL que empieza con ``git@``
 
@@ -36,7 +36,7 @@ cuando se usa *SSH*, por eso más abajo usé la URL que empieza con ``git@``
     git init # inicializar el repositorio git
     git remote add origin git@github.com:usuario/proyecto.git # indicar URL de GitHub
 
-    # antes de continuar es necesario ya tener la documentación generada
+    # antes de continuar es necesario ya tener la documentación generada:
     cd docs
     make html
     cd ../

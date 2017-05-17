@@ -36,6 +36,7 @@
               href="genindex.html"/>
         <link rel="search" title="Búsqueda" href="search.html"/>
     <link rel="top" title="documentación de Guia Sphinx - 1.0" href="index.html"/>
+        <link rel="next" title="Ejemplos" href="ejemplos.html"/>
         <link rel="prev" title="Escribir la documentación" href="escribir.html"/> 
 
   
@@ -98,6 +99,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#actualizar-documentacion">Actualizar documentación</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="ejemplos.html">Ejemplos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/miproyecto.html">miproyecto</a></li>
 </ul>
 
             
@@ -177,11 +180,11 @@ Para este caso creo que lo mejor es poner los archivos <code class="docutils lit
 <div class="section" id="por-primera-vez">
 <h2>Por primera vez<a class="headerlink" href="#por-primera-vez" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Primero se puede crear el repositorio en <a class="reference external" href="https://github.com/">GitHub</a>, luego creamos el repositorio
-en nuestra PC y subimos el código.</p>
-<p>Al crear el repositorio se muestra una dirección que se debe usar para subir los
-cambios. Si se usa la dirección que empieza con <code class="docutils literal"><span class="pre">https://</span></code> hay que poner la
-contraseña de <em>GitHub</em> cada vez que se suban modificaciones, si se usa la
-dirección que empieza con <code class="docutils literal"><span class="pre">git&#64;</span></code> previamente hay que agregar la clave
+<em>Git</em> en nuestra PC y subimos el código.</p>
+<p>Al crear el repositorio en <em>GitHub</em> se muestra una dirección que se debe usar
+para subir los cambios. Si se usa la dirección que empieza con <code class="docutils literal"><span class="pre">https://</span></code> hay
+que poner la contraseña de <em>GitHub</em> cada vez que se suban modificaciones, si se
+usa la dirección que empieza con <code class="docutils literal"><span class="pre">git&#64;</span></code> previamente hay que agregar la clave
 pública de <em>SSH</em> de la PC a la cuenta de <em>GitHub</em>. Yo voy mostrar un ejemplo de
 cuando se usa <em>SSH</em>, por eso más abajo usé la URL que empieza con <code class="docutils literal"><span class="pre">git&#64;</span></code></p>
 <div class="code sh highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">git</span> <span class="c1"># instalar git</span>
@@ -190,7 +193,7 @@ cuando se usa <em>SSH</em>, por eso más abajo usé la URL que empieza con <code
 <span class="n">git</span> <span class="n">init</span> <span class="c1"># inicializar el repositorio git</span>
 <span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">usuario</span><span class="o">/</span><span class="n">proyecto</span><span class="o">.</span><span class="n">git</span> <span class="c1"># indicar URL de GitHub</span>
 
-<span class="c1"># antes de continuar es necesario ya tener la documentación generada</span>
+<span class="c1"># antes de continuar es necesario ya tener la documentación generada:</span>
 <span class="n">cd</span> <span class="n">docs</span>
 <span class="n">make</span> <span class="n">html</span>
 <span class="n">cd</span> <span class="o">../</span>
@@ -234,6 +237,8 @@ debería ver la documentación de nuestro proyecto.</p>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ejemplos.html" class="btn btn-neutral float-right" title="Ejemplos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="escribir.html" class="btn btn-neutral" title="Escribir la documentación" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

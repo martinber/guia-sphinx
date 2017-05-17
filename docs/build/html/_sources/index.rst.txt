@@ -8,23 +8,22 @@ Guía de Sphinx
    instalacion
    escribir
    publicar
-   codigo_fuente/ejemplos
-   ejemplo_jerarquia/ej1
+   ejemplos
+   src/miproyecto
 
 Introducción
 ------------
 
 Esta es una guía simple sobre cómo documentar código escrito en python con
 `Sphinx`_. Comenzar con la página sobre la instalación y luego con la que
-explica cómo escribir la documentación.
+explica cómo escribir la documentación, al final se puede ver la pagina sobre
+cómo publicar en GitHub y los ejemplos.
 
-Como ejemplo hay código fuente documentado automáticamente a partir de los
-*docstrings* y hay varias páginas que muestran cómo hacer una jerarquía en el
-árbol de contenidos.
+Hay código fuente documentado automáticamente a partir de los *docstrings* en la
+sección *miproyecto*.
 
 Esta guía está escrita usando *Sphinx* así que la idea es ver el `código fuente
-de todo esto`__. Al ver los ``.rst`` desde *GitHub*, es necesario apretar el
-botón *Raw* para verlos en texto plano.
+de todo esto`__ como ejemplo.
 
 __ Repositorio_
 
