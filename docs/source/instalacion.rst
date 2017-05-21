@@ -104,8 +104,8 @@ falta ninguna de esas.
 * ``Create Makefile? (y/n) [y]``: Si se desea crear un ``Makefile`` para
   simplificar la generación de la documentación en Linux. Elegir ``y``.
 
-* ``Create Makefile? (y/n) [y]``: Si se desea crear un ``make.bat`` para
-  simplificar la generación de la documentación en Windows. Elegir ``y``.
+* ``Create Windows command file? (y/n) [y]``: Si se desea crear un ``make.bat``
+  para simplificar la generación de la documentación en Windows. Elegir ``y``.
 
 Todas estas opciones pueden ser cambiadas en el archivo ``conf.py`` que está en
 ``docs/source``.
