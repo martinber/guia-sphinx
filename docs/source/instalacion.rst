@@ -4,7 +4,9 @@ Instalación y configuración
 Yo uso las configuraciones que me parecen más comunes y fáciles de usar. Al
 final queda algo igual a esto que estás leyendo.
 
-Como estructura de archivos, me parece que lo mejor es::
+Como estructura de archivos, `lo recomendado`__ es::
+
+__ http://docs.python-guide.org/en/latest/writing/structure/
 
   .
   ├── docs
@@ -95,7 +97,7 @@ corchetes:
   Usar `y`.
 
 Luego pregunta si se desean habilitar varias extensiones para *Sphinx*, no hace
-falta ninguna de esas.
+falta ninguna de esas. Más tarde se pueden agregar o quitar extensiones.
 
 * ``githubpages: create .nojekyll file to publish the document on GitHub pages
   (y/n) [n]``: Esta extensión se debe usar en el caso que se quiera publicar la
@@ -152,6 +154,9 @@ importar los temas externos que se usen::
 
   sys.path.insert(0, os.path.abspath('../../'))
 
+El *path* a usar depende de la estructura de archivos usada. Debe ser relativo a
+la ubicación de ``conf.py``.
+
 Cargar las extensiones
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -167,15 +172,21 @@ extensiones que están siendo cargadas. Las que vamos a usar son:
 * **githubpages**: Crea un archivo necesario para poder publicar la
   documentación en *GitHub Pages*.
 
-* **napoleon**: Permine escribir los *docstrings* con la convención *NumPy* o
+* **napoleon**: Permite escribir los *docstrings* con la convención *NumPy* o
   *Google*. Esto hace la documentación en el código fuente más legible que la
   que la posible por defecto.
+
+* **autosummary**: Genera automáticamente archivos ``.rst`` para automatizar
+  todavía más el trabajo que hace **autodoc**. Usarla o no depende de qué
+  control se quiera tener sobre el resultado final, después explico bien que
+  hace.
 
 Entonces en ``conf.py``::
 
   extensions = ['sphinx.ext.autodoc',
       'sphinx.ext.viewcode',
       'sphinx.ext.githubpages',
+      'sphinx.ext.autosummary', # depende de como se quiera trabajar
       'sphinx.ext.napoleon']
 
 Otras configuraciones
@@ -186,21 +197,6 @@ tema a usar buscando la línea correcta y cambiando por::
 
   html_theme = "sphinx_rtd_theme"
   html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-
-Por último, la extensión *napoleon* lleva algunas configuraciones más. Al final
-se pueden agregar estas líneas que me parecen bastante bien para empezar::
-
-  napoleon_google_docstring = True
-  napoleon_numpy_docstring = True
-  napoleon_include_init_with_doc = False
-  napoleon_include_private_with_doc = False
-  napoleon_include_special_with_doc = True
-  napoleon_use_admonition_for_examples = False
-  napoleon_use_admonition_for_notes = False
-  napoleon_use_admonition_for_references = False
-  napoleon_use_ivar = False
-  napoleon_use_param = True
-  napoleon_use_rtype = True
 
 
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/

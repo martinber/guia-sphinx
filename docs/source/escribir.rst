@@ -65,8 +65,8 @@ advertencia cuando hay paginas inaccesibles debido que no han sido agregadas a
 ningún índice. Cada página puede tener su propia tabla de contenidos para así
 crear un árbol jerárquico de páginas.
 
-Los títulos de cada documento sí son incluidos automáticamente a la tabla de
-contenidos.
+Los títulos y subtítulos de cada documento son incluidos automáticamente a la
+tabla de contenidos.
 
 En el caso de usar carpetas para ordenar los documentos, no sen ve reflejadas en
 el árbol de contenidos. Pero sí debe especificarse la ruta relativa al documento
