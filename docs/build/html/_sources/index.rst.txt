@@ -1,5 +1,3 @@
-Guía de Sphinx
-==============
 
 .. toctree::
    :maxdepth: 3
@@ -45,7 +43,7 @@ Las cosas que se usan para hacer esto son:
 
 * **GitHub**: Es un sitio web que hostea sobre todo proyectos de software libre
   de forma gratuita. Permite hostear una web estática para cada proyecto, que
-  viene perfecto para la documentación generada con **Sphinx**.
+  viene perfecto para la documentación generada con **Sphinx** pero es opcional.
 
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/
 .. _Repositorio: https://github.com/martinber/guia-sphinx

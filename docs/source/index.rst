@@ -25,6 +25,14 @@ de todo esto`__ como ejemplo.
 
 __ Repositorio_
 
+Notas
+-----
+
+* Cuando probé *Sphinx* en *Ubuntu* tuve un problema, al hacer ``make html``
+  recibía un error que decía ``No module named sphinx``. Lo solucioné
+  modificando el ``Makefile``, cambiando ``python -msphinx`` por
+  ``sphinx-build``.
+
 Glosario
 --------
 

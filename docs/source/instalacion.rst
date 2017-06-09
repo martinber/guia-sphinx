@@ -6,8 +6,6 @@ final queda algo igual a esto que estás leyendo.
 
 Como estructura de archivos, `lo recomendado`__ es::
 
-__ http://docs.python-guide.org/en/latest/writing/structure/
-
   .
   ├── docs
   │   ├── build
@@ -25,6 +23,8 @@ __ http://docs.python-guide.org/en/latest/writing/structure/
   └── miproyecto
       ├── ...
       └── main.py
+
+__ http://docs.python-guide.org/en/latest/writing/structure/
 
 En ``docs`` va toda la documentación, dentro hay un ``Makefile`` y las carpetas
 ``source`` y ``build``.

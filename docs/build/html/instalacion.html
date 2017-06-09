@@ -37,7 +37,7 @@
         <link rel="search" title="Búsqueda" href="search.html"/>
     <link rel="top" title="documentación de Guia Sphinx - 1.0" href="index.html"/>
         <link rel="next" title="Escribir la documentación" href="escribir.html"/>
-        <link rel="prev" title="Guía de Sphinx" href="index.html"/> 
+        <link rel="prev" title="Introducción" href="index.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -175,7 +175,7 @@
 <h1>Instalación y configuración<a class="headerlink" href="#instalacion-y-configuracion" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Yo uso las configuraciones que me parecen más comunes y fáciles de usar. Al
 final queda algo igual a esto que estás leyendo.</p>
-<p>Como estructura de archivos, me parece que lo mejor es:</p>
+<p>Como estructura de archivos, <a class="reference external" href="http://docs.python-guide.org/en/latest/writing/structure/">lo recomendado</a> es:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>.
 ├── docs
 │   ├── build
@@ -247,15 +247,15 @@ desea generar documentación a partir de los <em>docstrings</em> del código fue
 Usar <cite>y</cite>.</li>
 </ul>
 <p>Luego pregunta si se desean habilitar varias extensiones para <em>Sphinx</em>, no hace
-falta ninguna de esas.</p>
+falta ninguna de esas. Más tarde se pueden agregar o quitar extensiones.</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">githubpages:</span> <span class="pre">create</span> <span class="pre">.nojekyll</span> <span class="pre">file</span> <span class="pre">to</span> <span class="pre">publish</span> <span class="pre">the</span> <span class="pre">document</span> <span class="pre">on</span> <span class="pre">GitHub</span> <span class="pre">pages</span>
 <span class="pre">(y/n)</span> <span class="pre">[n]</span></code>: Esta extensión se debe usar en el caso que se quiera publicar la
 documentación generada en <em>GitHub Pages</em>.</li>
 <li><code class="docutils literal"><span class="pre">Create</span> <span class="pre">Makefile?</span> <span class="pre">(y/n)</span> <span class="pre">[y]</span></code>: Si se desea crear un <code class="docutils literal"><span class="pre">Makefile</span></code> para
 simplificar la generación de la documentación en Linux. Elegir <code class="docutils literal"><span class="pre">y</span></code>.</li>
-<li><code class="docutils literal"><span class="pre">Create</span> <span class="pre">Makefile?</span> <span class="pre">(y/n)</span> <span class="pre">[y]</span></code>: Si se desea crear un <code class="docutils literal"><span class="pre">make.bat</span></code> para
-simplificar la generación de la documentación en Windows. Elegir <code class="docutils literal"><span class="pre">y</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">Create</span> <span class="pre">Windows</span> <span class="pre">command</span> <span class="pre">file?</span> <span class="pre">(y/n)</span> <span class="pre">[y]</span></code>: Si se desea crear un <code class="docutils literal"><span class="pre">make.bat</span></code>
+para simplificar la generación de la documentación en Windows. Elegir <code class="docutils literal"><span class="pre">y</span></code>.</li>
 </ul>
 <p>Todas estas opciones pueden ser cambiadas en el archivo <code class="docutils literal"><span class="pre">conf.py</span></code> que está en
 <code class="docutils literal"><span class="pre">docs/source</span></code>.</p>
@@ -297,6 +297,8 @@ importar los temas externos que se usen:</p>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;../../&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
+<p>El <em>path</em> a usar depende de la estructura de archivos usada. Debe ser relativo a
+la ubicación de <code class="docutils literal"><span class="pre">conf.py</span></code>.</p>
 </div>
 <div class="section" id="cargar-las-extensiones">
 <h3>Cargar las extensiones<a class="headerlink" href="#cargar-las-extensiones" title="Enlazar permanentemente con este título">¶</a></h3>
@@ -309,14 +311,19 @@ fuente.</li>
 éstos son nombrados en la documentación.</li>
 <li><strong>githubpages</strong>: Crea un archivo necesario para poder publicar la
 documentación en <em>GitHub Pages</em>.</li>
-<li><strong>napoleon</strong>: Permine escribir los <em>docstrings</em> con la convención <em>NumPy</em> o
+<li><strong>napoleon</strong>: Permite escribir los <em>docstrings</em> con la convención <em>NumPy</em> o
 <em>Google</em>. Esto hace la documentación en el código fuente más legible que la
 que la posible por defecto.</li>
+<li><strong>autosummary</strong>: Genera automáticamente archivos <code class="docutils literal"><span class="pre">.rst</span></code> para automatizar
+todavía más el trabajo que hace <strong>autodoc</strong>. Usarla o no depende de qué
+control se quiera tener sobre el resultado final, después explico bien que
+hace.</li>
 </ul>
 <p>Entonces en <code class="docutils literal"><span class="pre">conf.py</span></code>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx.ext.autodoc&#39;</span><span class="p">,</span>
     <span class="s1">&#39;sphinx.ext.viewcode&#39;</span><span class="p">,</span>
     <span class="s1">&#39;sphinx.ext.githubpages&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sphinx.ext.autosummary&#39;</span><span class="p">,</span> <span class="c1"># depende de como se quiera trabajar</span>
     <span class="s1">&#39;sphinx.ext.napoleon&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -327,21 +334,6 @@ que la posible por defecto.</li>
 tema a usar buscando la línea correcta y cambiando por:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;sphinx_rtd_theme&quot;</span>
 <span class="n">html_theme_path</span> <span class="o">=</span> <span class="p">[</span><span class="n">sphinx_rtd_theme</span><span class="o">.</span><span class="n">get_html_theme_path</span><span class="p">()]</span>
-</pre></div>
-</div>
-<p>Por último, la extensión <em>napoleon</em> lleva algunas configuraciones más. Al final
-se pueden agregar estas líneas que me parecen bastante bien para empezar:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">napoleon_google_docstring</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">napoleon_numpy_docstring</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">napoleon_include_init_with_doc</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">napoleon_include_private_with_doc</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">napoleon_include_special_with_doc</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">napoleon_use_admonition_for_examples</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">napoleon_use_admonition_for_notes</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">napoleon_use_admonition_for_references</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">napoleon_use_ivar</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">napoleon_use_param</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">napoleon_use_rtype</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 </div>
@@ -361,7 +353,7 @@ se pueden agregar estas líneas que me parecen bastante bien para empezar:</p>
         <a href="escribir.html" class="btn btn-neutral float-right" title="Escribir la documentación" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Guía de Sphinx" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Introducción" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Receta simple &mdash; documentación de Guia Sphinx - 1.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Guia Sphinx - 1.0" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Guia Sphinx
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenidos:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../instalacion.html">Instalación y configuración</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../escribir.html">Escribir la documentación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publicar.html">Publicar en GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ejemplos.html">Ejemplos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../src/miproyecto.html">miproyecto</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Guia Sphinx</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Receta simple</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/recetas/simple.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="receta-simple">
+<h1>Receta simple<a class="headerlink" href="#receta-simple" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>La documentación va a consistir de una sola página, primero va a haber una
+descripción del proyecto y luego la documentación generada a partir de cada
+módulo.</p>
+<p>Esta es la forma recomendada de configurar Sphinx cuando el proyecto consiste en
+menos de 3 módulos.</p>
+<div class="section" id="generar-la-configuracion">
+<h2>Generar la configuración<a class="headerlink" href="#generar-la-configuracion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Ir a la carpeta del proyecto y ejecutar <code class="docutils literal"><span class="pre">sphinx-quickstart</span></code>.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">batch_ffmpeg</span>
+<span class="n">sphinx</span><span class="o">-</span><span class="n">quickstart</span>
+</pre></div>
+</div>
+<p>Va a ir preguntando algunas opciones, usar:</p>
+<ul class="simple">
+<li>Root path for documentation: docs/</li>
+<li>Separate source and build directories: y</li>
+</ul>
+<p>También pregunta si se desean activar unas extensiones, activar:</p>
+<ul class="simple">
+<li>intersphinx</li>
+<li>todo</li>
+<li>viewcode</li>
+<li>githubpages (si se va a usar <em>GitHub</em>)</li>
+</ul>
+<p>Al final pregunta si se busca crear <em>makefiles</em>, responder sí a ambos.</p>
+</div>
+<div class="section" id="configurar">
+<h2>Configurar<a class="headerlink" href="#configurar" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Se configura en <code class="docutils literal"><span class="pre">conf.py</span></code>.</p>
+<ul class="simple">
+<li>Importar <code class="docutils literal"><span class="pre">os</span></code>, <code class="docutils literal"><span class="pre">sys</span></code> y agregar carpeta al <em>PATH</em>.</li>
+<li>Agregar la extension <code class="docutils literal"><span class="pre">napoleon</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">todo_include_todos</span> <span class="pre">=</span> <span class="pre">True</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="escribir">
+<h2>Escribir<a class="headerlink" href="#escribir" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Editar <code class="docutils literal"><span class="pre">index.rst</span></code> y dejarlo algo así:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Documentación de mi proyecto
+============================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+Esta es una introducción a lo que hace este proyecto...
+
+Mi modulo1
+----------
+
+.. automodule:: miproyecto.modulo1
+   :members:
+   :private-members:
+
+Mi modulo2
+----------
+
+.. automodule:: miproyecto.modulo2
+   :members:
+   :private-members:
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Yo escribí <code class="docutils literal"><span class="pre">miproyecto.modulo1</span></code>. Esto debe ser el módulo a documentar tal
+cual uno lo importa desde Python. Depende de qué se haya agregado al <code class="docutils literal"><span class="pre">path</span></code>
+en <code class="docutils literal"><span class="pre">conf.py</span></code>.</p>
+</div>
+</div>
+<div class="section" id="generar">
+<h2>Generar<a class="headerlink" href="#generar" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Moverse a la carpeta de la documentación y hacer <code class="docutils literal"><span class="pre">make</span> <span class="pre">html</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">miproyecto</span><span class="o">/</span><span class="n">docs</span>
+<span class="n">make</span> <span class="n">html</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Martín Bernardi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
