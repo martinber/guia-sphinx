@@ -16,6 +16,35 @@ formato `reStructuredText`_, que tiene una sintaxis especial para describir
 texto en negrita, cursiva, etc. Además hay *directivas* para insertar imagenes,
 tablas, referencias, etc. Por ejemplo ``.. image:: foto.jpeg``.
 
+Lo importante, es que cada página que va a estar en la web generada viene de un
+archivo ``.rst``. Originalmente estas páginas solamente muestran lo que tienen
+escrito en ellas, si uno quiere incluir documentación desde *docstrings* se usan
+unas *directivas* que indican qué módulos/funciones/clases mostrar.
+
+Al final un archivo ``.rst`` se ve algo así::
+
+  Mi Programa
+  ===========
+
+  Esta es la documentación para mi programa.
+
+  Este programa sirve para:
+
+  * Hacer algo
+  * Hacer otra cosa
+  * ...
+
+  Documentación:
+  --------------
+
+  .. automodule:: prog.py
+     :members:
+
+``.. automodule::`` es una *directiva*, se va a reemplazar por la documentación
+proveniente del módulo ``prog.py``. ``:members:`` es una opción que indica que
+además de mostrar el *docstring* del módulo, se quiere mostrar la documentación
+de todas las clases y funciones que tiene dentro.
+
 Página principal
 ----------------
 

@@ -34,6 +34,7 @@ sys.path.insert(0, os.path.abspath('../../'))
 # ones.
 extensions = ['sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
+    'sphinx.ext.todo',
     'sphinx.ext.githubpages',
     'sphinx.ext.napoleon']
 
@@ -79,7 +80,8 @@ exclude_patterns = []
 pygments_style = 'sphinx'
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = False
+todo_include_todos = True
+todo_emit_warnings = True
 
 
 # -- Options for HTML output ----------------------------------------------

@@ -95,6 +95,7 @@
 <li class="toctree-l1"><a class="reference internal" href="escribir.html">Escribir la documentación</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publicar.html">Publicar en GitHub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ejemplos.html">Ejemplos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recetas/inicio.html">Recetas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="src/miproyecto.html">miproyecto</a></li>
 </ul>
 
@@ -189,6 +190,18 @@
 <li class="toctree-l2"><a class="reference internal" href="ejemplos.html#comparacion-temas">Comparación temas</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="recetas/inicio.html">Recetas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recetas/inicio.html#generar-la-configuracion">Generar la configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recetas/inicio.html#configurar">Configurar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recetas/inicio.html#como-continuar">Como continuar</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recetas/simple.html">Método simple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recetas/autosummary.html">Utilizando autosummary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recetas/manual.html">Método manual</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="recetas/inicio.html#generar">Generar</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="src/miproyecto.html">miproyecto</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="src/example_class.html">example_class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/example_error.html">example_error</a></li>
@@ -209,10 +222,22 @@
 <a class="reference external" href="http://www.sphinx-doc.org/en/stable/">Sphinx</a>. Comenzar con la página sobre la instalación y luego con la que
 explica cómo escribir la documentación, al final se puede ver la pagina sobre
 cómo publicar en GitHub y los ejemplos.</p>
-<p>Hay código fuente documentado automáticamente a partir de los <em>docstrings</em> en la
-sección <em>miproyecto</em>.</p>
-<p>Esta guía está escrita usando <em>Sphinx</em> así que la idea es ver el <a class="reference external" href="https://github.com/martinber/guia-sphinx">código fuente
-de todo esto</a> como ejemplo.</p>
+<p>Si no hay ganas de aprender tanto hay recetas que dicen cómo configurar y hacer
+todo bien rápido sin tantas explicaciones.</p>
+<p>También hay una presentación que puede servir como introducción.</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Link</p>
+</div>
+</div>
+<div class="section" id="notas">
+<h1>Notas<a class="headerlink" href="#notas" title="Enlazar permanentemente con este título">¶</a></h1>
+<ul class="simple">
+<li>Cuando probé <em>Sphinx</em> en <em>Ubuntu</em> tuve un problema, al hacer <code class="docutils literal"><span class="pre">make</span> <span class="pre">html</span></code>
+recibía un error que decía <code class="docutils literal"><span class="pre">No</span> <span class="pre">module</span> <span class="pre">named</span> <span class="pre">sphinx</span></code>. Lo solucioné
+modificando el <code class="docutils literal"><span class="pre">Makefile</span></code>, cambiando <code class="docutils literal"><span class="pre">python</span> <span class="pre">-msphinx</span></code> por
+<code class="docutils literal"><span class="pre">sphinx-build</span></code>.</li>
+</ul>
 </div>
 <div class="section" id="glosario">
 <h1>Glosario<a class="headerlink" href="#glosario" title="Enlazar permanentemente con este título">¶</a></h1>
@@ -230,6 +255,21 @@ títulos, listas, tablas, cómo insertar imagenes, etc.</li>
 de forma gratuita. Permite hostear una web estática para cada proyecto, que
 viene perfecto para la documentación generada con <strong>Sphinx</strong> pero es opcional.</li>
 </ul>
+<p>Esto es sobre <em>Python</em>:</p>
+<ul class="simple">
+<li><strong>módulo</strong> o <strong>script</strong>: Es un archivo <code class="docutils literal"><span class="pre">.py</span></code>.</li>
+<li><strong>paquete</strong>: Es una carpeta que contiene archivos <code class="docutils literal"><span class="pre">.py</span></code>. Debe tener un
+archivo (que puede estar vacío) llamado <code class="docutils literal"><span class="pre">__init__.py</span></code>.</li>
+</ul>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Por hacer</p>
+<ul class="last simple">
+<li>Hacer ejemplos de los tres metodos. Y linkearlos por todos lados.</li>
+<li>Actualizar la documentacion general.</li>
+<li>Ver como incluir al <code class="docutils literal"><span class="pre">toctree</span></code> a las recetas.</li>
+<li>Buscar en todos lados referencias a los temas y linkear al documento.</li>
+</ul>
+</div>
 </div>
 
 

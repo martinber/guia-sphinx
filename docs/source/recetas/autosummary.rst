@@ -1,12 +1,17 @@
-Receta automática
-=================
+Utilizando autosummary
+======================
+
+.. note::
+
+  Acá se explica cómo configurar y usar *autosummary*, antes se debe configurar
+  como se indica en :doc:`la receta <./inicio>`.
 
 La documentación va a consistir con una página principal que tiene una
 descripción simple y varios links, cada uno lleva a la documentación de un
 módulo que está en una página separada.
 
-Hay que hacer dos archivos ``.rst``: uno es el *index* y otro es una plantilla que
-se utiliza para generar la documentación de cada módulo.
+Hay que hacer dos archivos ``.rst``: uno es el *index* y otro es una plantilla
+que se utiliza para generar la documentación de cada módulo.
 
 Esto se hace gracias a la extensión *autosummary*. Esta extensión crea un
 archivo ``.rst`` para cada módulo a partir de la plantilla. Estos archivos
@@ -26,60 +31,14 @@ documentación en *HTML*.
 .. note::
 
   Para entender mejor cuál es el trabajo que hace *autosummary* mirar en qué
-  consiste la "receta manual".
-
-Generar la configuración
-------------------------
-
-Ir a la carpeta del proyecto y ejecutar ``sphinx-quickstart``.
-
-::
-
-  cd batch_ffmpeg
-  sphinx-quickstart
-
-Va a ir preguntando algunas opciones, usar:
-
-* Root path for documentation: docs/
-* Separate source and build directories: y
-
-Las demás opciones dejarlas por defecto. También pregunta el nombre del
-proyecto, número de versión (opcional) y autor.
-
-Luego pregunta las extensiones a utilizar, activar estas:
-
-* intersphinx.
-* todo.
-* mathjax.
-* viewcode.
-* githubpages (si se va a usar *GitHub*).
-
-Al final pregunta si se busca crear *makefiles*, responder sí a ambos.
+  consiste el :doc:`método manual <./manual>`.
 
 Configurar
 ----------
 
-Se configura en ``docs/source/conf.py``.
-
-* Importar ``os``, ``sys`` y agregar carpeta al *PATH*. Si estás usando la
-  estructura de archivos que recomendé, el *path* es: ``'../../'``.
-
-* Agregar la extension ``sphinx.ext.napoleon`` y ``sphinx.ext.autosummary`` en
-  la lista ``extensions``..
+* Agregar la extension ``sphinx.ext.autosummary`` en la lista ``extensions``.
 
 * En cualquier lado poner ``autosummary_generate = True``.
-
-* En cualquier lado poner::
-
-    html_sidebars = { '**': ['globaltoc.html', 'relations.html',
-            'sourcelink.html', 'searchbox.html'], }
-
-  Eso agrega una tabla de contenidos al *sidebar*.
-
-* Opcionalmente cambiar el `tema`__, modificando ``html_theme``. Recomiendo
-``nature`` o ``sphinx_rtd_theme``.
-
-__ http://www.sphinx-doc.org/en/stable/theming.html
 
 Escribir
 --------
@@ -162,12 +121,3 @@ que la que viene por defecto::
   .. automodule:: {{ fullname }}
      :members:
      :private-members:
-
-
-Generar
--------
-
-Moverse a la carpeta de la documentación y hacer ``make html``::
-
-  cd miproyecto/docs
-  make html

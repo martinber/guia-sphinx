@@ -7,6 +7,7 @@
    escribir
    publicar
    ejemplos
+   recetas/inicio
    src/miproyecto
 
 Introducción
@@ -17,13 +18,22 @@ Esta es una guía simple sobre cómo documentar código escrito en python con
 explica cómo escribir la documentación, al final se puede ver la pagina sobre
 cómo publicar en GitHub y los ejemplos.
 
-Hay código fuente documentado automáticamente a partir de los *docstrings* en la
-sección *miproyecto*.
+Si no hay ganas de aprender tanto hay recetas que dicen cómo configurar y hacer
+todo bien rápido sin tantas explicaciones.
 
-Esta guía está escrita usando *Sphinx* así que la idea es ver el `código fuente
-de todo esto`__ como ejemplo.
+También hay una presentación que puede servir como introducción.
 
-__ Repositorio_
+.. todo::
+
+  Link
+
+Notas
+-----
+
+* Cuando probé *Sphinx* en *Ubuntu* tuve un problema, al hacer ``make html``
+  recibía un error que decía ``No module named sphinx``. Lo solucioné
+  modificando el ``Makefile``, cambiando ``python -msphinx`` por
+  ``sphinx-build``.
 
 Glosario
 --------
@@ -45,5 +55,23 @@ Las cosas que se usan para hacer esto son:
   de forma gratuita. Permite hostear una web estática para cada proyecto, que
   viene perfecto para la documentación generada con **Sphinx** pero es opcional.
 
+Esto es sobre *Python*:
+
+* **módulo** o **script**: Es un archivo ``.py``.
+
+* **paquete**: Es una carpeta que contiene archivos ``.py``. Debe tener un
+  archivo (que puede estar vacío) llamado ``__init__.py``.
+
+.. todo::
+
+  * Hacer ejemplos de los tres metodos. Y linkearlos por todos lados.
+
+  * Actualizar la documentacion general.
+
+  * Ver como incluir al ``toctree`` a las recetas.
+
+  * Buscar en todos lados referencias a los temas y linkear al documento.
+
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/
 .. _Repositorio: https://github.com/martinber/guia-sphinx
+

@@ -1,7 +1,7 @@
 Ejemplos
 ========
 
-Como ejemplo, se puede ver el `código fuente de esta guía`__. 
+Como ejemplo, se puede ver el `código fuente de esta guía`__.
 
 __ Repositorio_
 

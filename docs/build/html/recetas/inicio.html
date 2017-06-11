@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Generar la configuración &mdash; documentación de Guia Sphinx - 1.0</title>
+  <title>Recetas &mdash; documentación de Guia Sphinx - 1.0</title>
   
 
   
@@ -35,7 +35,9 @@
         <link rel="index" title="Índice"
               href="../genindex.html"/>
         <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Guia Sphinx - 1.0" href="../index.html"/> 
+    <link rel="top" title="documentación de Guia Sphinx - 1.0" href="../index.html"/>
+        <link rel="next" title="Método simple" href="simple.html"/>
+        <link rel="prev" title="Ejemplos" href="../ejemplos.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -89,11 +91,23 @@
             
             
               <p class="caption"><span class="caption-text">Contenidos:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../instalacion.html">Instalación y configuración</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../escribir.html">Escribir la documentación</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../publicar.html">Publicar en GitHub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ejemplos.html">Ejemplos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Recetas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#generar-la-configuracion">Generar la configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configurar">Configurar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#como-continuar">Como continuar</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="simple.html">Método simple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="autosummary.html">Utilizando autosummary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual.html">Método manual</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#generar">Generar</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../src/miproyecto.html">miproyecto</a></li>
 </ul>
 
@@ -139,7 +153,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Generar la configuración</li>
+      <li>Recetas</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -158,8 +172,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="generar-la-configuracion">
-<h1>Generar la configuración<a class="headerlink" href="#generar-la-configuracion" title="Enlazar permanentemente con este título">¶</a></h1>
+  <div class="section" id="recetas">
+<h1>Recetas<a class="headerlink" href="#recetas" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Esta es una guía bien rápida y que no explica tanto cómo funciona <em>Sphinx</em>.
+Primero hay que hacer lo que está en esta página para configurar <em>Sphinx</em> de
+forma general, después los pasos finales dependen de cómo uno quiera documentar
+las cosas.</p>
+<div class="section" id="generar-la-configuracion">
+<h2>Generar la configuración<a class="headerlink" href="#generar-la-configuracion" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Ir a la carpeta del proyecto y ejecutar <code class="docutils literal"><span class="pre">sphinx-quickstart</span></code>.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">batch_ffmpeg</span>
 <span class="n">sphinx</span><span class="o">-</span><span class="n">quickstart</span>
@@ -167,60 +187,80 @@
 </div>
 <p>Va a ir preguntando algunas opciones, usar:</p>
 <ul class="simple">
-<li>Root path for documentation: docs/</li>
-<li>Separate source and build directories: y</li>
+<li>Root path for documentation: <code class="docutils literal"><span class="pre">docs/</span></code>.</li>
+<li>Separate source and build directories: <code class="docutils literal"><span class="pre">y</span></code>.</li>
 </ul>
-<p>También pregunta si se desean activar unas extensiones, activar:</p>
+<p>Las demás opciones dejarlas por defecto. También pregunta el nombre del
+proyecto, número de versión (opcional) y autor.</p>
+<p>Luego pregunta las extensiones a utilizar, activar estas:</p>
 <ul class="simple">
-<li>autodoc</li>
-<li>intersphinx</li>
-<li>todo</li>
-<li>viewcode</li>
-<li>githubpages (si se va a usar <em>GitHub</em>)</li>
+<li>intersphinx.</li>
+<li>todo.</li>
+<li>mathjax.</li>
+<li>viewcode.</li>
+<li>githubpages (si se va a usar <em>GitHub</em>).</li>
 </ul>
 <p>Al final pregunta si se busca crear <em>makefiles</em>, responder sí a ambos.</p>
 </div>
 <div class="section" id="configurar">
-<h1>Configurar<a class="headerlink" href="#configurar" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>Editar <code class="docutils literal"><span class="pre">conf.py</span></code>:</p>
-<ul class="simple">
-<li>Importar <code class="docutils literal"><span class="pre">os</span></code>, <code class="docutils literal"><span class="pre">sys</span></code> y agregar carpeta al <em>PATH</em>.</li>
-<li>Agregar las extensiones <code class="docutils literal"><span class="pre">napoleon</span></code> y <code class="docutils literal"><span class="pre">autosummary</span></code>.</li>
-<li><code class="docutils literal"><span class="pre">autosummary_generate</span> <span class="pre">=</span> <span class="pre">True</span></code>.</li>
-<li><code class="docutils literal"><span class="pre">todo_include_todos</span> <span class="pre">=</span> <span class="pre">True</span></code>.</li>
+<h2>Configurar<a class="headerlink" href="#configurar" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Se configura en <code class="docutils literal"><span class="pre">docs/source/conf.py</span></code>.</p>
+<ul>
+<li><p class="first">Importar <code class="docutils literal"><span class="pre">os</span></code>, <code class="docutils literal"><span class="pre">sys</span></code> y agregar carpeta que contiene el código al <em>PATH</em>.
+Si estás usando la estructura de archivos que recomendé, el <em>path</em> es:
+<code class="docutils literal"><span class="pre">'../../'</span></code>.</p>
+</li>
+<li><p class="first">Agregar la extension <code class="docutils literal"><span class="pre">sphinx.ext.napoleon</span></code> en la lista <code class="docutils literal"><span class="pre">extensions</span></code>.</p>
+</li>
+<li><p class="first">En cualquier lado poner:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">html_sidebars</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;**&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;globaltoc.html&#39;</span><span class="p">,</span> <span class="s1">&#39;relations.html&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;sourcelink.html&#39;</span><span class="p">,</span> <span class="s1">&#39;searchbox.html&#39;</span><span class="p">],</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Eso agrega una tabla de contenidos al <em>sidebar</em>.</p>
+</li>
+<li><p class="first">Opcionalmente <a class="reference internal" href="../temas.html"><span class="doc">cambiar el tema</span></a>.</p>
+</li>
 </ul>
-<p>Editar <code class="docutils literal"><span class="pre">index.rst</span></code> y agregar:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>  .. autosummary::
-     :toctree: _autosummary
-
-     batch_ffmpeg
-     batch_ffmpeg.file
-     batch_ffmpeg.convert
-     batch_ffmpeg.command
-     batch_ffmpeg.ui.interactive
-     batch_ffmpeg.ui.shell
-
-Pegar template en ``_templates``.
-</pre></div>
 </div>
+<div class="section" id="como-continuar">
+<h2>Como continuar<a class="headerlink" href="#como-continuar" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Una vez que se hayan hecho estos pasos, ya se puede generar la documentación,
+aunque todavía esté vacía.</p>
+<p>Para poder ver lo que se haya escrito en <em>docstrings</em> antes hay que indicar
+dónde está el código fuente e indicar las páginas a usar. Hay tres formas de
+hacerlo:</p>
+<ul class="simple">
+<li><a class="reference internal" href="simple.html"><span class="doc">Método simple</span></a>.</li>
+<li><a class="reference internal" href="autosummary.html"><span class="doc">Utilizando *autosummary*</span></a>.</li>
+<li><a class="reference internal" href="manual.html"><span class="doc">Método manual</span></a>.</li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="simple.html">Método simple</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="simple.html#escribir">Escribir</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="autosummary.html">Utilizando autosummary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary.html#configurar">Configurar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary.html#escribir">Escribir</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manual.html">Método manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manual.html#escribir">Escribir</a></li>
+</ul>
+</li>
+</ul>
 </div>
-<div class="section" id="usar-pydoc">
-<h1>Usar pydoc<a class="headerlink" href="#usar-pydoc" title="Enlazar permanentemente con este título">¶</a></h1>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">batch_ffmpeg</span>
-<span class="n">pydoc3</span> <span class="o">-</span><span class="n">p</span> <span class="mi">9876</span>
-
-<span class="n">Despues</span> <span class="n">apretar</span> <span class="n">b</span> <span class="n">y</span> <span class="n">Enter</span>
-</pre></div>
+<p>Antes de utilizar <em>autosummary</em> me parece que uno debe entender como funcionan
+los otros dos métodos.</p>
 </div>
-</div>
-<div class="section" id="usar-pydoctor">
-<h1>Usar pydoctor<a class="headerlink" href="#usar-pydoctor" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>Si o si usa <em>Python 2</em>.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">batch_ffmpeg</span>
-<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pydoctor</span>
-<span class="n">pydoctor</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">package</span> <span class="o">./</span> <span class="o">--</span><span class="n">docformat</span> <span class="n">plaintext</span>
-<span class="n">pydoctor</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">module</span> <span class="o">./</span><span class="n">a</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">docformat</span> <span class="n">plaintext</span>
-</pre></div>
+<div class="section" id="generar">
+<h2>Generar<a class="headerlink" href="#generar" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Una vez que se haya utilizado uno de esos métodos, la web se genera con:</p>
+<blockquote>
+<div>cd miproyecto/docs
+make html</div></blockquote>
 </div>
 </div>
 
@@ -231,6 +271,15 @@ Pegar template en ``_templates``.
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="simple.html" class="btn btn-neutral float-right" title="Método simple" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ejemplos.html" class="btn btn-neutral" title="Ejemplos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
