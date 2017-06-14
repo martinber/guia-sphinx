@@ -26,11 +26,11 @@ Comparación temas
 Para que vean que vale la pena usar el tema *Read The Docs* en lugar del
 original:
 
-.. figure:: screenshot_alabaster.png
+.. figure:: ./imagenes/screenshot_alabaster.png
 
    Tema *Alabaster*, usado por defecto
 
-.. figure:: screenshot_readthedocs.png
+.. figure:: ./imagenes/screenshot_readthedocs.png
 
    Tema *Read the Docs*, usado por el proyecto `Read the Docs`_
 

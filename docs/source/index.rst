@@ -1,102 +1,30 @@
+Guía Sphinx
+===========
 
 .. toctree::
    :maxdepth: 3
    :caption: Contenidos:
 
+   introduccion
    instalacion
    escribir
    publicar
    ejemplos
    recetas/inicio
-   src/miproyecto
 
 Esta es una guía simple sobre cómo documentar código escrito en python con
-`Sphinx`_. Comenzar con la página sobre la instalación y luego con la que
-explica cómo escribir la documentación, al final se puede ver la pagina sobre
-cómo publicar en GitHub y los ejemplos.
+`Sphinx`_.
 
-Si no hay ganas de aprender tanto hay recetas que dicen cómo configurar y hacer
-todo bien rápido sin tantas explicaciones.
+Habría que leer las páginas en el orden en que están en la tabla de contenidos.
+El problema es que son bastantes cosas. Si no hay ganas de aprender tanto hay
+recetas que dicen cómo configurar y hacer todo bien rápido sin tantas
+explicaciones.
 
 También hay una presentación que puede servir como introducción.
 
 .. todo::
 
   Link
-
-Introducción
-------------
-
-Esto sirve para generar documentación en una página web como esta a partir de
-*docstrings* que son comentarios especiales que uno pone en el código fuente. Lo
-que hay que hacer es configurar *Sphinx* y luego cada tanto correr un comando y
-generar los archivos *html* con la documentación.
-
-También se puede documentar texto (por ejemplo esta guía) y además de *html*
-exportar en *pdf* o *epub*.
-
-Un *docstring* se ve algo así:
-
-.. image:: ./imagenes/reemplazar_ext.png
-
-Los *docstrings* tienen que ser escritos siguiendo un estilo, el estilo que yo
-recomiendo por ser el más fácil es *Google Style*. Se escribe como se muestra en
-la foto.
-
-A partir de eso, se genera una documentación que se ve algo así:
-
-.. image:: ./imagenes/reemplazar_ext_html.png
-
-También se puede documentar texto que se escribe algo así:
-
-.. image:: ./imagenes/texto.png
-
-.. todo::
-
-  Actualizar screenshot
-
-Y se ve como lo que estás viendo ahora.
-
-La documentación se escribe en archivos ``.rst``, que están ubicados en una
-carpeta llamada ``source``. A partir de estos archvos, que se escriben en
-*reStructuredText*, se genera la página web.
-
-Los archivos y carpetas pueden organizarse de varias formas, la forma
-`recomendada`_ de organizar el proyecto es::
-
-  .
-  ├── docs
-  │   ├── build
-  │   │   ├── ...
-  │   │   └── html
-  │   │       ├── ...
-  │   │       └── index.html
-  │   ├── Makefile
-  │   └── source
-  │       ├── ...
-  │       ├── conf.py
-  │       └── index.rst
-  ├── LICENSE.txt
-  ├── README.md
-  └── miproyecto
-      ├── ...
-      └── main.py
-
-__ http://docs.python-guide.org/en/latest/writing/structure/
-
-En ``docs`` va toda la documentación, dentro hay un ``Makefile`` y las carpetas
-``source`` y ``build``.
-
-``source`` tiene la documentación escrita en `reStructuredText`_ y un archivo
-``conf.py`` con las configuraciones usadas por `Sphinx`_.  Dentro de ``build``
-está la misma documentación en *html* ya generada por `Sphinx`_. Por último el
-``Makefile`` permite generar la documentación con un solo comando.
-
-Después en otra carpeta aparte, ``miproyecto`` está el código. ``LICENSE.txt`` y
-``README.md`` se suelen agregar para presentar el proyecto en por ejemplo
-`GitHub`_.
-
-
 
 Notas
 -----
@@ -139,12 +67,11 @@ Esto es sobre *Python*:
 
   * Actualizar la documentacion general.
 
-  * Ver como incluir al ``toctree`` a las recetas.
-
   * Buscar en todos lados referencias a los temas y linkear al documento.
 
   * Ver que pasa cuando se pone un punto en el título de página
 
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/
 .. _Repositorio: https://github.com/martinber/guia-sphinx
-
+.. _reStructuredText: http://docutils.sourceforge.net/rst.html
+.. _GitHub: https://github.com/

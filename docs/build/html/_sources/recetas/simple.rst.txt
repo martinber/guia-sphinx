@@ -29,15 +29,9 @@ Editar ``index.rst`` y dejarlo algo así:
 
   Esta es una introducción a lo que hace este proyecto...
 
-  Mi modulo1
-  ----------
-
   .. automodule:: miproyecto.modulo1
      :members:
      :private-members:
-
-  Mi modulo2
-  ----------
 
   .. automodule:: miproyecto.modulo2
      :members:

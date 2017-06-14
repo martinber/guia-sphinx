@@ -1,6 +1,10 @@
 Escribir la documentación
 =========================
 
+.. todo::
+
+  Revisar
+
 Se escribe en los archivos ``.rst`` ubicados en ``docs/source/``. Cada página se
 escribe en un archivo separado. Cada página puede importar documentación desde
 *docstrings* del código.
