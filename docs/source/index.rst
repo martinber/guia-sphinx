@@ -62,7 +62,7 @@ carpeta llamada ``source``. A partir de estos archvos, que se escriben en
 *reStructuredText*, se genera la página web.
 
 Los archivos y carpetas pueden organizarse de varias formas, la forma
-`recomendada`_ de organizar el proyecto es::
+`recomendada`__ de organizar el proyecto es::
 
   .
   ├── docs
@@ -147,4 +147,5 @@ Esto es sobre *Python*:
 
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/
 .. _Repositorio: https://github.com/martinber/guia-sphinx
-
+.. _reStructuredText: http://docutils.sourceforge.net/rst.html
+.. _GitHub: https://github.com/

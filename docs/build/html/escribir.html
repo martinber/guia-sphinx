@@ -180,6 +180,33 @@ especificar dónde queremos insertar la documentación que proviene de los
 formato <a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a>, que tiene una sintaxis especial para describir
 texto en negrita, cursiva, etc. Además hay <em>directivas</em> para insertar imagenes,
 tablas, referencias, etc. Por ejemplo <code class="docutils literal"><span class="pre">..</span> <span class="pre">image::</span> <span class="pre">foto.jpeg</span></code>.</p>
+<p>Lo importante, es que cada página que va a estar en la web generada viene de un
+archivo <code class="docutils literal"><span class="pre">.rst</span></code>. Originalmente estas páginas solamente muestran lo que tienen
+escrito en ellas, si uno quiere incluir documentación desde <em>docstrings</em> se usan
+unas <em>directivas</em> que indican qué módulos/funciones/clases mostrar.</p>
+<p>Al final un archivo <code class="docutils literal"><span class="pre">.rst</span></code> se ve algo así:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Mi</span> <span class="n">Programa</span>
+<span class="o">===========</span>
+
+<span class="n">Esta</span> <span class="n">es</span> <span class="n">la</span> <span class="n">documentación</span> <span class="n">para</span> <span class="n">mi</span> <span class="n">programa</span><span class="o">.</span>
+
+<span class="n">Este</span> <span class="n">programa</span> <span class="n">sirve</span> <span class="n">para</span><span class="p">:</span>
+
+<span class="o">*</span> <span class="n">Hacer</span> <span class="n">algo</span>
+<span class="o">*</span> <span class="n">Hacer</span> <span class="n">otra</span> <span class="n">cosa</span>
+<span class="o">*</span> <span class="o">...</span>
+
+<span class="n">Documentación</span><span class="p">:</span>
+<span class="o">--------------</span>
+
+<span class="o">..</span> <span class="n">automodule</span><span class="p">::</span> <span class="n">prog</span><span class="o">.</span><span class="n">py</span>
+   <span class="p">:</span><span class="n">members</span><span class="p">:</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">..</span> <span class="pre">automodule::</span></code> es una <em>directiva</em>, se va a reemplazar por la documentación
+proveniente del módulo <code class="docutils literal"><span class="pre">prog.py</span></code>. <code class="docutils literal"><span class="pre">:members:</span></code> es una opción que indica que
+además de mostrar el <em>docstring</em> del módulo, se quiere mostrar la documentación
+de todas las clases y funciones que tiene dentro.</p>
 <div class="section" id="pagina-principal">
 <h2>Página principal<a class="headerlink" href="#pagina-principal" title="Enlazar permanentemente con este título">¶</a></h2>
 <p><em>Sphinx</em> crea automáticamente la página principal con el nombre dado en la
