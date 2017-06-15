@@ -1,6 +1,10 @@
 Publicar en GitHub
 ==================
 
+.. todo::
+
+  Revisar y ver GitLab
+
 `GitHub`_ es un sitio web que hostea sobre todo proyectos de software libre de
 forma gratuita. Una alternativa similar es `GitLab`_, aunque voy a usar
 `GitHub`_ porque es más conocido.

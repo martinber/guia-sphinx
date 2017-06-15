@@ -26,6 +26,7 @@ proyecto, número de versión (opcional) y autor.
 
 Luego pregunta las extensiones a utilizar, activar estas:
 
+* autodoc.
 * intersphinx.
 * todo.
 * mathjax.
@@ -52,7 +53,8 @@ Se configura en ``docs/source/conf.py``.
 
   Eso agrega una tabla de contenidos al *sidebar*.
 
-* Opcionalmente :doc:`cambiar el tema <../temas>`.
+* Opcionalmente :doc:`cambiar el tema <../temas>`, recomiendo cambiar
+  ``'alabaster'`` por ``'nature'``.
 
 Como continuar
 --------------
@@ -64,18 +66,11 @@ Para poder ver lo que se haya escrito en *docstrings* antes hay que indicar
 dónde está el código fuente e indicar las páginas a usar. Hay tres formas de
 hacerlo:
 
-* :doc:`Método simple <./simple>`.
-
-* :doc:`Utilizando *autosummary* <./autosummary>`.
-
-* :doc:`Método manual <./manual>`.
-
 .. toctree::
 
   simple
   autosummary
   manual
-
 
 Antes de utilizar *autosummary* me parece que uno debe entender como funcionan
 los otros dos métodos.

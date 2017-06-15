@@ -1,10 +1,10 @@
 Instalación y configuración
 ===========================
 
-Yo uso las configuraciones que me parecen más comunes y fáciles de usar. Al
-final queda algo igual a esto que estás leyendo.
+Yo uso las configuraciones que me parecen más comunes y fáciles de usar. Pero
+hay muchas cosas que también se pueden hacer distinto.
 
-Como estructura de archivos, `lo recomendado`__ es::
+La estructura de archivos que vamos a usar es:
 
   .
   ├── docs
@@ -26,26 +26,20 @@ Como estructura de archivos, `lo recomendado`__ es::
 
 __ http://docs.python-guide.org/en/latest/writing/structure/
 
-En ``docs`` va toda la documentación, dentro hay un ``Makefile`` y las carpetas
-``source`` y ``build``.
-
-``source`` tiene la documentación escrita en `reStructuredText`_ y un archivo
-``conf.py`` con las configuraciones usadas por `Sphinx`_.  Dentro de ``build``
-está la misma documentación ya generada por `Sphinx`_. Por último el
-``Makefile`` permite generar la documentación con un solo comando.
-
-Después en otra carpeta aparte, ``miproyecto`` está el código. ``LICENSE.txt`` y
-``README.md`` se suelen agregar para presentar el proyecto en `GitHub`_.
-
 Instalación
 -----------
 
-Hay que instalar `Sphinx`_ y algún tema si hace falta. El tema que más me gusta
-es el del proyecto `Read the Docs`_.
+Hay que instalar `Sphinx`_. Se usa ``pip`` que es algo así como un ``apt-get``
+para los programas escritos en *Python*.
 
 ::
 
+  sudo apt install python3-pip
   pip3 install sphinx sphinx_rtd_theme
+
+.. note::
+
+  Nunca supe bien si para usar ``pip`` se necesita ``sudo``.
 
 Generar configuraciones
 -----------------------
@@ -56,35 +50,35 @@ tener algo funcionando.
 
 ::
 
-  mkdir docs
-  cd docs
   sphinx-quickstart
 
 En el proceso hace varias preguntas y muestra el valor por defecto entre
 corchetes:
 
-* ``Root path for the documentation [.]``: En nuestro caso es ``docs``, como ya
-  hicimos ``cd`` a la carpeta, el valor por defecto está bien.
+* ``Root path for the documentation [.]``: En nuestro caso vamos a usar
+  ``docs``.
 
-* ``Separate source and build directories (y/n) [n]``: Determina si separar
-  ``source`` y ``build`` o si se desea dejar los ``.rst`` sueltos y solamente
-  crear una carpeta ``_build``. En este caso usamos ``y``.
+* ``Separate source and build directories (y/n) [n]``: Determina la estructura
+  de carpetas que se va a usar, nosotros usamos ``y`` para tener una carpeta
+  llamada ``build`` y una llamada ``source``.
 
 * ``Name prefix for templates and static dir [_]``: Prefijo a usar para carpetas
-  especiales, el valor por defecto está bien.
+  especiales y de *Sphinx*, el valor por defecto está bien.
 
 * ``Project name``.
 
 * ``Author name``.
 
 * ``Project version []``: Versión actual del proyecto, por ejemplo ``1.0``.
+  Opcional.
 
 * ``Project release []``: Versión menor del proyecto, por ejemplo ``1.0.4``.
+  Opcional.
 
-* ``Project language [en]``: Idioma de la documentación, por ejemplo ``es``.
+* ``Project language [en]``: Idioma de la documentación, usamos ``es``.
 
-* ``Source file suffix [.rst]``: Extensión de los archivos de documentación,
-  ``.rst`` está bien.
+* ``Source file suffix [.rst]``: Extensión de los archivos de documentación, el
+  valor por defecto ``.rst`` está bien.
 
 * ``Name of your master document (without suffix) [index]``: Nombre de archivo
   de la página principal de la documentación. El valor por defecto está bien.
@@ -94,14 +88,11 @@ corchetes:
 
 * ``autodoc: automatically insert docstrings from modules (y/n) [n]``: Si se
   desea generar documentación a partir de los *docstrings* del código fuente.
-  Usar `y`.
+  Usar ``y``.
 
-Luego pregunta si se desean habilitar varias extensiones para *Sphinx*, no hace
-falta ninguna de esas. Más tarde se pueden agregar o quitar extensiones.
-
-* ``githubpages: create .nojekyll file to publish the document on GitHub pages
-  (y/n) [n]``: Esta extensión se debe usar en el caso que se quiera publicar la
-  documentación generada en *GitHub Pages*.
+Luego pregunta si se desean habilitar varias extensiones para *Sphinx*.
+Recomiendo instalar: ``autodoc``, ``intersphinx``, ``todo``, ``mathjax`` y
+``viewcode``.
 
 * ``Create Makefile? (y/n) [y]``: Si se desea crear un ``Makefile`` para
   simplificar la generación de la documentación en Linux. Elegir ``y``.
@@ -109,15 +100,16 @@ falta ninguna de esas. Más tarde se pueden agregar o quitar extensiones.
 * ``Create Windows command file? (y/n) [y]``: Si se desea crear un ``make.bat``
   para simplificar la generación de la documentación en Windows. Elegir ``y``.
 
-Todas estas opciones pueden ser cambiadas en el archivo ``conf.py`` que está en
-``docs/source``.
+Todas estas opciones pueden ser cambiadas luego en el archivo ``conf.py`` que
+está en ``docs/source``.
 
 Generar documentación
 ---------------------
 
 Significa correr *Sphinx* para generar un sitio web a partir de los archivos
 ``.rst`` presentes en ``docs/source`` y a partir de los *docstrings* que están
-en el código fuente.
+en el código fuente. Cada vez que hagamos alguna modificación hay que
+actualizar la documentación con este comando.
 
 Gracias al ``Makefile``, lo único que hay que hacer es::
 
@@ -127,30 +119,31 @@ Gracias al ``Makefile``, lo único que hay que hacer es::
 Para ver la documentación generada abrir ``docs/build/html/index.html`` en el
 navegador.
 
-A veces es necesario eliminar los archivos generados y volver a generar la
-documentación desde cero para que se actualicen los índices::
+Por ahora la documentación va a estar bastante vacía porque no escribimos nada.
 
-  cd docs/
-  make clean
-  make html
+.. note::
+
+  A veces es necesario eliminar los archivos generados y volver a generar la
+  documentación desde cero para que se actualicen los índices::
+
+    cd docs/
+    make clean
+    make html
 
 Configuración
 -------------
 
-Toda la configuración se escribe en ``docs/source/conf.py``.Se puede mirar la
-:download:`configuración de esta documentación <conf.py>` para comparar.
+Toda la configuración se escribe en ``docs/source/conf.py``.
 
 Importar lo necesario
 ~~~~~~~~~~~~~~~~~~~~~
 
 Hay que importar el código fuente para poder analizar sus *docstrings* y a
 partir de ahí generar parte de la documentación. Como el código fuente está en
-otra carpeta hay que agregarla al *path* de *Python*. Tambien de paso hay que
-importar los temas externos que se usen::
+otra carpeta hay que agregarla al *path* de *Python*::
 
   import os
   import sys
-  import sphinx_rtd_theme
 
   sys.path.insert(0, os.path.abspath('../../'))
 
@@ -161,43 +154,55 @@ Cargar las extensiones
 ~~~~~~~~~~~~~~~~~~~~~~
 
 A partir de lo que se haya elegido en la configuración inicial, ya hay
-extensiones que están siendo cargadas. Las que vamos a usar son:
+extensiones que están siendo cargadas. Las que vamos a usar son estas, no viene
+mal tener extensiones de más:
 
 * **autodoc**: Genera la documentación a partir de los *docstrings* del código
-  fuente.
+  fuente. Es la más importante!.
 
-* **viewcode**: Automáticamente agrega links a archivos del código fuente cuando
-  éstos son nombrados en la documentación.
+* **intersphinx**: Permite hacer links entre documentaciones, puede ser útil.
 
-* **githubpages**: Crea un archivo necesario para poder publicar la
-  documentación en *GitHub Pages*.
+* **todo**: Agrega herramientas para llevar la cuenta de los "ToDo" (cosas por
+  hacer).
+
+* **mathjax**: Permite agregar fórmulas matemáticas escritas en *LaTeX*.
+
+* **viewcode**: Permite ver el código fuente desde la documentación, es muy
+  cómodo.
 
 * **napoleon**: Permite escribir los *docstrings* con la convención *NumPy* o
   *Google*. Esto hace la documentación en el código fuente más legible que la
-  que la posible por defecto.
+  que la posible por defecto. **Esta debe ser agregada manualmente**. También
+  es importante!
 
 * **autosummary**: Genera automáticamente archivos ``.rst`` para automatizar
   todavía más el trabajo que hace **autodoc**. Usarla o no depende de qué
   control se quiera tener sobre el resultado final, después explico bien que
-  hace.
+  hace. **Agregarla solamente si se la quiere usar**.
 
 Entonces en ``conf.py``::
 
   extensions = ['sphinx.ext.autodoc',
-      'sphinx.ext.viewcode',
-      'sphinx.ext.githubpages',
-      'sphinx.ext.autosummary', # depende de como se quiera trabajar
-      'sphinx.ext.napoleon']
+          'sphinx.ext.intersphinx',
+          'sphinx.ext.todo',
+          'sphinx.ext.mathjax',
+          'sphinx.ext.napoleon',
+          'sphinx.ext.autosummary', # solamente si se la quiere usar
+          'sphinx.ext.viewcode']
 
 Otras configuraciones
 ~~~~~~~~~~~~~~~~~~~~~
 
-Hay muchas cosas que hay que dejar como vienen. Lo siguiente a cambiar es el
-tema a usar buscando la línea correcta y cambiando por::
+Hay una línea que se puede agregar para que en la barra lateral aparezca una
+tabla de contenidos, yo recomiendo agregarla siempre (en cualquier lugar de
+``conf.py``)::
 
-  html_theme = "sphinx_rtd_theme"
-  html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+  html_sidebars = { '**': ['globaltoc.html', 'relations.html',
+          'sourcelink.html', 'searchbox.html'], }
 
+Por último se puede :doc:`cambiar el tema <./temas>`.
+
+Lo que queda ahora es `escribir la documentación <./escribir>`.
 
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/
 .. _Read the Docs: https://readthedocs.org/

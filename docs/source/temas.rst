@@ -1,6 +1,10 @@
 Temas
 =====
 
+.. todo::
+
+  Revisar
+
 El tema que viene por defecto con *Sphinx* no me parece el mejor. Vienen
 incluidos varios temas que se eligen al modificar la variable ``html_theme``.
 
