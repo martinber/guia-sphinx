@@ -25,7 +25,7 @@ También hay una presentación que puede servir como introducción.
 
 .. todo::
 
-  Link
+  Link a presentacion y explicar como mandar correcciones
 
 Notas
 -----

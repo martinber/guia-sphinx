@@ -2,8 +2,8 @@ Alternativas
 ============
 
 Antes de elegir `Sphinx`_ probé varias herramientas similares que por algunas
-razones creo que son peores. De todas formas hay dos que pueden se útiles cuando
-no hay ganas de configurar *Sphinx* para ver los *docstrings*.
+razones creo que son peores. De todas formas hay dos que pueden ser útiles
+cuando no hay ganas de configurar *Sphinx* para ver los *docstrings*.
 
 Las herramientas que probé son:
 
@@ -22,8 +22,8 @@ partir de los *docstrings*, tienen la ventaja que se pueden mirar los
 
 La desventaja que tienen es que lo que uno escribe se ve en texto plano (pero
 como *Google Style* es muy legible no es un problema). La otra desventaja es que
-no permiten ver documentación aparte que está escrita en archivos de texto,
-solamente permiten ver los *docstrings*.
+no permiten ver documentación aparte (que podría estar escrita en archivos de
+texto), solamente permiten ver los *docstrings*.
 
 Puede ser útil usarlos en algún apuro por eso en estas páginas explico bien
 rápido como usarlos:
