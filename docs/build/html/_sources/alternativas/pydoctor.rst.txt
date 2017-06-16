@@ -9,7 +9,7 @@ Imagen de ejemplo:
 
 .. todo::
 
-  Revisar y agregar a toc.
+  Revisar.
 
 ::
 
