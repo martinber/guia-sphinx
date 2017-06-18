@@ -51,3 +51,8 @@ Editar ``index.rst`` y dejarlo algo así:
   en ``conf.py``.
 
 Y listo, no hay que hacer nada más.
+
+Continuar
+---------
+
+Ahora solamente falta :ref:`generar la documentación! <generar_receta>`.

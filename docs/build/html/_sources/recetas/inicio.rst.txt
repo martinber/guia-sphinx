@@ -56,6 +56,8 @@ Se configura en ``docs/source/conf.py``.
 * Opcionalmente :ref:`cambiar el tema <temas>`, recomiendo cambiar
   ``'alabaster'`` por ``'nature'``.
 
+.. _tipos_receta:
+
 Como continuar
 --------------
 
@@ -75,10 +77,12 @@ hacerlo:
 Antes de utilizar *autosummary* me parece que uno debe entender como funcionan
 los otros dos métodos.
 
+.. _generar_receta:
+
 Generar
 -------
 
-Una vez que se haya utilizado uno de esos métodos, la web se genera con:
+Una vez que se haya utilizado uno de esos métodos, la web se genera con::
 
   cd miproyecto/docs
   make html

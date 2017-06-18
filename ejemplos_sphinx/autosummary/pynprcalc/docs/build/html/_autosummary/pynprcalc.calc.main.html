@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pynprcalc.calc.main &#8212; documentación de pynprcalc - </title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="pynprcalc.calc.ui" href="pynprcalc.calc.ui.html" />
+    <link rel="prev" title="Documentacion de pynprcalc" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Índice General"
+             accesskey="I">índice</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Índice de Módulos Python"
+             >módulos</a> |</li>
+        <li class="right" >
+          <a href="pynprcalc.calc.ui.html" title="pynprcalc.calc.ui"
+             accesskey="N">siguiente</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Documentacion de pynprcalc"
+             accesskey="P">anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">documentación de pynprcalc - </a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pynprcalc-calc-main">
+<h1>pynprcalc.calc.main<a class="headerlink" href="#pynprcalc-calc-main" title="Enlazar permanentemente con este título">¶</a></h1>
+<p class="rubric">Classes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#pynprcalc.calc.main.Calc" title="pynprcalc.calc.main.Calc"><code class="xref py py-obj docutils literal"><span class="pre">Calc</span></code></a>()</td>
+<td>Calculadora en sí.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#pynprcalc.calc.main.Stack" title="pynprcalc.calc.main.Stack"><code class="xref py py-obj docutils literal"><span class="pre">Stack</span></code></a>()</td>
+<td>Implementación de un <em>stack</em>.</td>
+</tr>
+</tbody>
+</table>
+<span class="target" id="module-pynprcalc.calc.main"></span><p>Corazón de la caluladora.</p>
+<p>La calculadora tiene un <em>stack</em> (que es una cola LIFO, lo último que entra es lo
+primero que sale). Trabaja con <em>float</em>.</p>
+<p>Los números se ponen en el <em>stack</em>. Los comandos sacan cero o más números del
+<em>stack</em>, hacen una operación con ellos y ponen el resultado en el <em>stack</em>.</p>
+<p>Por ejemplo al comienzo el <em>stack</em> contiene varios números, los últimos números
+están abajo.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">5</span>
+<span class="mi">6</span>
+<span class="mi">2</span>
+<span class="mi">4</span>
+</pre></div>
+</div>
+<p>Al usar el comando <code class="docutils literal"><span class="pre">+</span></code>, el se toman los últimos dos números del <em>stack</em> y se
+coloca su suma:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">5</span>
+<span class="mi">6</span>
+<span class="mi">6</span>
+</pre></div>
+</div>
+<dl class="class">
+<dt id="pynprcalc.calc.main.Calc">
+<em class="property">class </em><code class="descclassname">pynprcalc.calc.main.</code><code class="descname">Calc</code><a class="reference internal" href="../_modules/pynprcalc/calc/main.html#Calc"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#pynprcalc.calc.main.Calc" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Calculadora en sí.</p>
+<p>Tiene un <em>stack</em> y permite correr comandos sobre ese <em>stack</em>.</p>
+<dl class="method">
+<dt id="pynprcalc.calc.main.Calc.ejecutar">
+<code class="descname">ejecutar</code><span class="sig-paren">(</span><em>comando</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pynprcalc/calc/main.html#Calc.ejecutar"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#pynprcalc.calc.main.Calc.ejecutar" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Ejecutar un comando en la calculadora.</p>
+<p>Si el comando es un número, lo agrega al <em>stack</em>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><strong>comando</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(en Python versión 2.7)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)"><em>float</em></a><em>]</em><em></em>) &#8211; Comando a ejecutar.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">ValueError cuando el comando no existe.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pynprcalc.calc.main.Calc.insertar">
+<code class="descname">insertar</code><span class="sig-paren">(</span><em>n</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pynprcalc/calc/main.html#Calc.insertar"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#pynprcalc.calc.main.Calc.insertar" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Insertar un número en el <em>stack</em> de la calculadora.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><strong>n</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)"><em>float</em></a>) &#8211; Número a insertar.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pynprcalc.calc.main.Calc.lista">
+<code class="descname">lista</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pynprcalc/calc/main.html#Calc.lista"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#pynprcalc.calc.main.Calc.lista" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Devuelve una lista que representa al <em>stack</em>.</p>
+<p>Para por ejemplo mostrar el <em>stack</em> en pantalla y acceder a los
+elementos sin usar <code class="docutils literal"><span class="pre">pop()</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pynprcalc.calc.main.Stack">
+<em class="property">class </em><code class="descclassname">pynprcalc.calc.main.</code><code class="descname">Stack</code><a class="reference internal" href="../_modules/pynprcalc/calc/main.html#Stack"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#pynprcalc.calc.main.Stack" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Implementación de un <em>stack</em>.</p>
+<dl class="method">
+<dt id="pynprcalc.calc.main.Stack.insertar">
+<code class="descname">insertar</code><span class="sig-paren">(</span><em>n</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pynprcalc/calc/main.html#Stack.insertar"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#pynprcalc.calc.main.Stack.insertar" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Insertar un número en el stack.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><strong>n</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)"><em>float</em></a>) &#8211; Número a insertar.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pynprcalc.calc.main.Stack.lista">
+<code class="descname">lista</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pynprcalc/calc/main.html#Stack.lista"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#pynprcalc.calc.main.Stack.lista" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Devuelve una lista que representa al <em>stack</em>.</p>
+<p>Para por ejemplo mostrar el <em>stack</em> en pantalla y acceder a los
+elementos sin usar <code class="docutils literal"><span class="pre">pop()</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pynprcalc.calc.main.Stack.pop">
+<code class="descname">pop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pynprcalc/calc/main.html#Stack.pop"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#pynprcalc.calc.main.Stack.pop" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Sacar un número del <em>stack</em>.</p>
+<p>Elimina el número del <em>stack</em>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Devuelve:</th><td class="field-body">Número obtenido desde el <em>stack</em>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Tipo del valor devuelto:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Tabla de Contenidos</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pynprcalc.calc.main</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pynprcalc.calc.ui.html">pynprcalc.calc.ui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pynprcalc.funciones.misc.html">pynprcalc.funciones.misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pynprcalc.funciones.math.basico.html">pynprcalc.funciones.math.basico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pynprcalc.funciones.math.const.html">pynprcalc.funciones.math.const</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pynprcalc.funciones.math.exp.html">pynprcalc.funciones.math.exp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pynprcalc.funciones.math.trig.html">pynprcalc.funciones.math.trig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pynprcalc.funciones.math.misc.html">pynprcalc.funciones.math.misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pynprcalc.comandos.html">pynprcalc.comandos</a></li>
+</ul>
+
+  <h4>Tema anterior</h4>
+  <p class="topless"><a href="../index.html"
+                        title="capítulo anterior">Documentacion de pynprcalc</a></p>
+  <h4>Próximo tema</h4>
+  <p class="topless"><a href="pynprcalc.calc.ui.html"
+                        title="próximo capítulo">pynprcalc.calc.ui</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Esta página</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/_autosummary/pynprcalc.calc.main.rst.txt"
+            rel="nofollow">Mostrar el código</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Búsqueda rápida</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Ir a" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Índice General"
+             >índice</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Índice de Módulos Python"
+             >módulos</a> |</li>
+        <li class="right" >
+          <a href="pynprcalc.calc.ui.html" title="pynprcalc.calc.ui"
+             >siguiente</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Documentacion de pynprcalc"
+             >anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">documentación de pynprcalc - </a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Derechos de autor 2017, Martin Bernardi.
+      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
+    </div>
+  </body>
+</html>

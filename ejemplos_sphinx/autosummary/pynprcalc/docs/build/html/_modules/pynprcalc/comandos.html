@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pynprcalc.comandos &#8212; documentación de pynprcalc - </title>
+    
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="Índice General"
+             accesskey="I">índice</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Índice de Módulos Python"
+             >módulos</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">documentación de pynprcalc - </a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Código de módulo</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Código fuente para pynprcalc.comandos</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Interfaz entre los comandos de la calculadora y las funciones matemáticas.</span>
+
+<span class="sd">Por ejemplo, la función ``X SIN`` se corresponde a ``math.trig.sen(x)``.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="kn">from</span> <span class="nn">.funciones</span> <span class="k">import</span> <span class="n">math</span>
+<span class="kn">from</span> <span class="nn">.funciones</span> <span class="k">import</span> <span class="n">misc</span>
+
+
+<span class="n">comandos</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;+&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">basico</span><span class="o">.</span><span class="n">suma</span><span class="p">,</span>
+        <span class="s2">&quot;-&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">basico</span><span class="o">.</span><span class="n">resta</span><span class="p">,</span>
+        <span class="s2">&quot;*&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">basico</span><span class="o">.</span><span class="n">producto</span><span class="p">,</span>
+        <span class="s2">&quot;/&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">basico</span><span class="o">.</span><span class="n">division</span><span class="p">,</span>
+        <span class="s2">&quot;²&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">basico</span><span class="o">.</span><span class="n">cuadrado</span><span class="p">,</span>
+        <span class="s2">&quot;^&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">basico</span><span class="o">.</span><span class="n">potencia</span><span class="p">,</span>
+        <span class="s2">&quot;SQRT&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">basico</span><span class="o">.</span><span class="n">raiz_cuadrada</span><span class="p">,</span>
+        <span class="s2">&quot;ROOT&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">basico</span><span class="o">.</span><span class="n">raiz</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">basico</span><span class="o">.</span><span class="n">inverso</span><span class="p">,</span>
+        <span class="s2">&quot;_&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">basico</span><span class="o">.</span><span class="n">opuesto</span><span class="p">,</span>
+
+        <span class="s2">&quot;PI&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">const</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span>
+        <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">const</span><span class="o">.</span><span class="n">e</span><span class="p">,</span>
+
+        <span class="s2">&quot;EXP&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="o">.</span><span class="n">exp</span><span class="p">,</span>
+        <span class="s2">&quot;LN&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="o">.</span><span class="n">ln</span><span class="p">,</span>
+        <span class="s2">&quot;LOG10&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="o">.</span><span class="n">log10</span><span class="p">,</span>
+        <span class="s2">&quot;LOG&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="o">.</span><span class="n">log</span><span class="p">,</span>
+
+        <span class="s2">&quot;DTOR&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">grados_a_radianes</span><span class="p">,</span>
+        <span class="s2">&quot;RTOD&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">radianes_a_grados</span><span class="p">,</span>
+
+        <span class="s2">&quot;SIN&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">trig</span><span class="o">.</span><span class="n">sen</span><span class="p">,</span>
+        <span class="s2">&quot;COS&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">trig</span><span class="o">.</span><span class="n">cos</span><span class="p">,</span>
+        <span class="s2">&quot;TAN&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">trig</span><span class="o">.</span><span class="n">tg</span><span class="p">,</span>
+        <span class="s2">&quot;ASIN&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">trig</span><span class="o">.</span><span class="n">asen</span><span class="p">,</span>
+        <span class="s2">&quot;ACOS&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">trig</span><span class="o">.</span><span class="n">acos</span><span class="p">,</span>
+        <span class="s2">&quot;ATAN&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">trig</span><span class="o">.</span><span class="n">atg</span><span class="p">,</span>
+
+        <span class="s2">&quot;DUP&quot;</span><span class="p">:</span> <span class="n">misc</span><span class="o">.</span><span class="n">duplicar</span><span class="p">,</span>
+        <span class="s2">&quot;SWAP&quot;</span><span class="p">:</span> <span class="n">misc</span><span class="o">.</span><span class="n">intercambiar</span><span class="p">,</span>
+        <span class="s2">&quot;DEL&quot;</span><span class="p">:</span> <span class="n">misc</span><span class="o">.</span><span class="n">borrar</span>
+    <span class="p">}</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Mapeo de comandos con su función correspondiente.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="obtener_funcion"><a class="viewcode-back" href="../../_autosummary/pynprcalc.comandos.html#pynprcalc.comandos.obtener_funcion">[documentos]</a><span class="k">def</span> <span class="nf">obtener_funcion</span><span class="p">(</span><span class="n">comando</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Obtener la función matemática que se corresponde con el comando dado.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        comando (str): El nombre del comando, debe ser en mayúsculas.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Tuple[Callable, int]: Función matemática y número de argumentos que</span>
+<span class="sd">            necesita en un tuple.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError si no existe el comando especificado.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">funcion</span> <span class="o">=</span> <span class="n">comandos</span><span class="p">[</span><span class="n">comando</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;el comando </span><span class="si">{}</span><span class="s2"> no existe&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">comando</span><span class="p">))</span>
+
+    <span class="n">firma</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">funcion</span><span class="p">)</span>
+    <span class="n">cant_args</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">firma</span><span class="o">.</span><span class="n">parameters</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">funcion</span><span class="p">,</span> <span class="n">cant_args</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../../index.html">Tabla de Contenidos</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pynprcalc.calc.main.html">pynprcalc.calc.main</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pynprcalc.calc.ui.html">pynprcalc.calc.ui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pynprcalc.funciones.misc.html">pynprcalc.funciones.misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pynprcalc.funciones.math.basico.html">pynprcalc.funciones.math.basico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pynprcalc.funciones.math.const.html">pynprcalc.funciones.math.const</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pynprcalc.funciones.math.exp.html">pynprcalc.funciones.math.exp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pynprcalc.funciones.math.trig.html">pynprcalc.funciones.math.trig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pynprcalc.funciones.math.misc.html">pynprcalc.funciones.math.misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pynprcalc.comandos.html">pynprcalc.comandos</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Búsqueda rápida</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Ir a" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="Índice General"
+             >índice</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Índice de Módulos Python"
+             >módulos</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">documentación de pynprcalc - </a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Código de módulo</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Derechos de autor 2017, Martin Bernardi.
+      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
+    </div>
+  </body>
+</html>

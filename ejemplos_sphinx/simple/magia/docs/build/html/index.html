@@ -1,0 +1,467 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Documentación de Magia &mdash; documentación de Magia - </title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="genindex.html"/>
+        <link rel="search" title="Búsqueda" href="search.html"/>
+    <link rel="top" title="documentación de Magia - " href="#"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> Magia
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Documentación de Magia</a><ul>
+<li><a class="reference internal" href="#module-cartas">cartas.py</a></li>
+<li><a class="reference internal" href="#module-magia">magia.py</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Magia</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Documentación de Magia</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="documentacion-de-magia">
+<h1>Documentación de Magia<a class="headerlink" href="#documentacion-de-magia" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>Este es un programa que hace un truco de magia!</p>
+<div class="section" id="module-cartas">
+<span id="cartas-py"></span><h2>cartas.py<a class="headerlink" href="#module-cartas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Mazos y cartas.</p>
+<p>Contiene un Mazo y una clase Carta.</p>
+<p class="rubric">Tipos de mazos y cartas disponibles:</p>
+<ul class="simple">
+<li>&#8220;español&#8221;: Cartas del 1 al 12 más dos comodines. Los palos son &#8220;espada&#8221;,
+&#8220;oro&#8221;, &#8220;basto&#8221; y &#8220;copas&#8221;.</li>
+<li>&#8220;francés&#8221;: Cartas del 2 al 10 más las A, J, Q, K y dos comodines. Los palos
+son &#8220;pica&#8221;, &#8220;corazón&#8221;, &#8220;trébol&#8221; y &#8220;diamantes&#8221;.</li>
+</ul>
+<dl class="class">
+<dt id="cartas.Carta">
+<em class="property">class </em><code class="descclassname">cartas.</code><code class="descname">Carta</code><span class="sig-paren">(</span><em>tipo</em>, <em>figura</em>, <em>palo=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cartas.html#Carta"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#cartas.Carta" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Representa a una carta.</p>
+<dl class="attribute">
+<dt id="cartas.Carta.tipo">
+<code class="descname">tipo</code><a class="headerlink" href="#cartas.Carta.tipo" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Tipo de mazo al que pertenece, &#8220;español&#8221; o &#8220;francés&#8221;.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cartas.Carta.figura">
+<code class="descname">figura</code><a class="headerlink" href="#cartas.Carta.figura" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Figura de esta carta, ver FIGURAS_POSIBLES. Además puede ser
+&#8220;comodín&#8221;.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cartas.Carta.palo">
+<code class="descname">palo</code><a class="headerlink" href="#cartas.Carta.palo" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Palo al que pertenece esta carta, ver PALOS_POSIBLES. Si la figura
+es &#8220;comodín&#8221;, el palo es None.</p>
+</dd></dl>
+
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tipo</strong> &#8211; Tipo de mazo al que pertenece, &#8220;español&#8221; o &#8220;francés&#8221;.</li>
+<li><strong>figura</strong> &#8211; Figura de esta carta, ver FIGURAS_POSIBLES. Además puede ser
+&#8220;comodín&#8221;.</li>
+<li><strong>palo</strong> &#8211; Palo al que pertenece esta carta, ver PALOS_POSIBLES. Si la figura
+es &#8220;comodín&#8221;, el palo es None.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="cartas.FIGURAS_POSIBLES">
+<code class="descclassname">cartas.</code><code class="descname">FIGURAS_POSIBLES</code><em class="property"> = {'español': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], 'francés': [2, 3, 4, 5, 6, 7, 8, 9, 10, 'A', 'J', 'Q', 'K']}</em><a class="headerlink" href="#cartas.FIGURAS_POSIBLES" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Figuras soportadas por Carta.</p>
+<p>No incluye &#8220;comodín&#8221;</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="cartas.Mazo">
+<em class="property">class </em><code class="descclassname">cartas.</code><code class="descname">Mazo</code><a class="reference internal" href="_modules/cartas.html#Mazo"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#cartas.Mazo" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Un mazo de cartas.</p>
+<p>Al crear el mazo está vacío.</p>
+<p>Attributes:</p>
+<dl class="method">
+<dt id="cartas.Mazo.cant_cartas">
+<code class="descname">cant_cartas</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cartas.html#Mazo.cant_cartas"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#cartas.Mazo.cant_cartas" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Obtener la cantidad de cartas del mazo.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cartas.Mazo.generar">
+<code class="descname">generar</code><span class="sig-paren">(</span><em>tipo: str = 'español'</em>, <em>juego: int = 50</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cartas.html#Mazo.generar"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#cartas.Mazo.generar" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Crear un mazo estándar.</p>
+<p class="rubric">Tipos y Juegos disponibles</p>
+<ul class="simple">
+<li>&#8220;español&#8221;: Cartas del 1 al 12 más dos comodines. Los palos son espada,
+oro, basto y copas.<ul>
+<li>50: Todas las cartas del mazo más dos comodines.</li>
+<li>48: Todas las cartas del mazo menos los dos comodines.</li>
+<li>40: Todas las cartas del mazo menos los comodines, los 8 y los 9.</li>
+<li>36: Todas las cartas del mazo menos los comodines, los 8, los 9 y
+los 10.</li>
+</ul>
+</li>
+<li>&#8220;francés&#8221;: Cartas del 2 al 10 más las A, J, Q, K y dos comodines. Los
+palos son pica, corazón, trébol y diamantes.<ul>
+<li>54: Todas las cartas del mazo más dos comodines.</li>
+<li>52: Todas las cartas del mazo menos los dos comodines.</li>
+</ul>
+</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tipo</strong> &#8211; Tipo de mazo a utilizar. &#8220;español&#8221; o &#8220;francés&#8221;.</li>
+<li><strong>juego</strong> &#8211; Número de cartas a utilizar. Los posibles juegos dependen del
+tipo de mazo. Ver posibilidades abajo</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="cartas.Mazo.cartas">
+<code class="descname">cartas</code><a class="headerlink" href="#cartas.Mazo.cartas" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Lista que contiene a las cartas del mazo, los primeros
+elementos son los que están más abajo en el mazo y los últimos
+son los que están arriba del mazo.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="cartas.Mazo.generar_personalizado">
+<code class="descname">generar_personalizado</code><span class="sig-paren">(</span><em>tipo: str, figuras: typing.List[typing.Union[str, int]], palos: typing.List[str], cant_comodines: int</em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/cartas.html#Mazo.generar_personalizado"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#cartas.Mazo.generar_personalizado" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Generar mazo a partir de las figuras (números), palos y cantidad de
+comodines.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tipo</strong> &#8211; Tipo de mazo a utilizar. &#8220;español&#8221; o &#8220;francés&#8221;.</li>
+<li><strong>figuras</strong> &#8211; Figuras a utilizar, puede ser cualquier número o cualquier</li>
+<li><strong>en el caso de tratarse de una letra. Ver abajo los</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(en Python versión 2.7)"><em>string</em></a>) &#8211; valores aceptados.</li>
+<li><strong>palos</strong> &#8211; Palos a utilizar, ver abajo los valores aceptados.</li>
+<li><strong>cant_comodines</strong> &#8211; Cantidad de comodines a utilizar.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Valores aceptados</p>
+<ul class="simple">
+<li>&#8220;español&#8221;<ul>
+<li>Figuras: int desde 1 al 12.</li>
+<li>Palos: &#8220;espada&#8221;, &#8220;oro&#8221;, &#8220;basto&#8221; y &#8220;copas&#8221;.</li>
+</ul>
+</li>
+<li>&#8220;francés&#8221;<ul>
+<li>Figuras: int desde 2 al 10, sino puede ser un str de los posibles:
+&#8220;A&#8221;, &#8220;J&#8221;, &#8220;Q&#8221;, &#8220;K&#8221;.</li>
+<li>Palos: &#8220;espada&#8221;, &#8220;oro&#8221;, &#8220;basto&#8221; y copas&#8221;.</li>
+</ul>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="cartas.Mazo.mezclar">
+<code class="descname">mezclar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cartas.html#Mazo.mezclar"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#cartas.Mazo.mezclar" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Mezclar las cartas.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cartas.Mazo.poner">
+<code class="descname">poner</code><span class="sig-paren">(</span><em>e</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cartas.html#Mazo.poner"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#cartas.Mazo.poner" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Poner una carta o un mazo encima de este mazo.</p>
+<p>Al poner un mazo se vacía al otro mazo.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cartas.Mazo.tomar">
+<code class="descname">tomar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cartas.html#Mazo.tomar"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#cartas.Mazo.tomar" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Tomar una carta del mazo.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cartas.Mazo.vaciar">
+<code class="descname">vaciar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cartas.html#Mazo.vaciar"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#cartas.Mazo.vaciar" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Elimina todas las cartas del mazo.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="cartas.PALOS_POSIBLES">
+<code class="descclassname">cartas.</code><code class="descname">PALOS_POSIBLES</code><em class="property"> = {'español': ['espada', 'oro', 'basto', 'copas'], 'francés': ['pica', 'corazón', 'trébol', 'diamante']}</em><a class="headerlink" href="#cartas.PALOS_POSIBLES" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Palos soportados por Carta.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-magia">
+<span id="magia-py"></span><h2>magia.py<a class="headerlink" href="#module-magia" title="Enlazar permanentemente con este título">¶</a></h2>
+<dl class="function">
+<dt id="magia._explicar">
+<code class="descclassname">magia.</code><code class="descname">_explicar</code><span class="sig-paren">(</span><em>texto</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/magia.html#_explicar"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#magia._explicar" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Limpiar la pantalla y mostrar in texto recuadrado.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><strong>texto</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(en Python versión 2.7)"><em>str</em></a>) &#8211; Texto a mostrar en pantalla.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-----------------------------------------------------</span>
+<span class="n">Esto</span> <span class="n">es</span> <span class="n">un</span> <span class="n">texto</span> <span class="n">recuadrado</span>
+<span class="o">-----------------------------------------------------</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="magia._mostrar_pilas">
+<code class="descclassname">magia.</code><code class="descname">_mostrar_pilas</code><span class="sig-paren">(</span><em>pilas</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/magia.html#_mostrar_pilas"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#magia._mostrar_pilas" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Imprimir cuarto pilas (mazos) en columnas.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><strong>pilas</strong> (<em>magia.cartas.Mazo</em>) &#8211; Mazos a mostrar en pantalla.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="magia.truco_de_magia">
+<code class="descclassname">magia.</code><code class="descname">truco_de_magia</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/magia.html#truco_de_magia"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#magia.truco_de_magia" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Hace un truco de magia usando las cartas.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Enlazar permanentemente con este título">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Índice</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Índice de Módulos</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Página de Búsqueda</span></a></li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Martin Bernardi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

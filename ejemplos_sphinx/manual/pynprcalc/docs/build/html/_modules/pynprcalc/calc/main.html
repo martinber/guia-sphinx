@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pynprcalc.calc.main &#8212; documentación de pynprcalc - </title>
+    
+    <link rel="stylesheet" href="../../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Índice" href="../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="Índice General"
+             accesskey="I">índice</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Índice de Módulos Python"
+             >módulos</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">documentación de pynprcalc - </a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Código de módulo</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Código fuente para pynprcalc.calc.main</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Corazón de la caluladora.</span>
+
+<span class="sd">La calculadora tiene un *stack* (que es una cola LIFO, lo último que entra es lo</span>
+<span class="sd">primero que sale). Trabaja con *float*.</span>
+
+<span class="sd">Los números se ponen en el *stack*. Los comandos sacan cero o más números del</span>
+<span class="sd">*stack*, hacen una operación con ellos y ponen el resultado en el *stack*.</span>
+
+<span class="sd">Por ejemplo al comienzo el *stack* contiene varios números, los últimos números</span>
+<span class="sd">están abajo.</span>
+
+<span class="sd">::</span>
+
+<span class="sd">    5</span>
+<span class="sd">    6</span>
+<span class="sd">    2</span>
+<span class="sd">    4</span>
+
+<span class="sd">Al usar el comando ``+``, el se toman los últimos dos números del *stack* y se</span>
+<span class="sd">coloca su suma::</span>
+
+<span class="sd">    5</span>
+<span class="sd">    6</span>
+<span class="sd">    6</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">comandos</span>
+
+
+<div class="viewcode-block" id="Stack"><a class="viewcode-back" href="../../../calc.main.html#pynprcalc.calc.main.Stack">[documentos]</a><span class="k">class</span> <span class="nc">Stack</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implementación de un *stack*.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lista</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<div class="viewcode-block" id="Stack.insertar"><a class="viewcode-back" href="../../../calc.main.html#pynprcalc.calc.main.Stack.insertar">[documentos]</a>    <span class="k">def</span> <span class="nf">insertar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Insertar un número en el stack.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            n (float): Número a insertar.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lista</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Stack.pop"><a class="viewcode-back" href="../../../calc.main.html#pynprcalc.calc.main.Stack.pop">[documentos]</a>    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sacar un número del *stack*.</span>
+
+<span class="sd">        Elimina el número del *stack*.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: Número obtenido desde el *stack*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lista</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Stack.lista"><a class="viewcode-back" href="../../../calc.main.html#pynprcalc.calc.main.Stack.lista">[documentos]</a>    <span class="k">def</span> <span class="nf">lista</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Devuelve una lista que representa al *stack*.</span>
+
+<span class="sd">        Para por ejemplo mostrar el *stack* en pantalla y acceder a los</span>
+<span class="sd">        elementos sin usar ``pop()``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lista</span></div></div>
+
+
+<div class="viewcode-block" id="Calc"><a class="viewcode-back" href="../../../calc.main.html#pynprcalc.calc.main.Calc">[documentos]</a><span class="k">class</span> <span class="nc">Calc</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculadora en sí.</span>
+
+<span class="sd">    Tiene un *stack* y permite correr comandos sobre ese *stack*.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stack</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="Calc.insertar"><a class="viewcode-back" href="../../../calc.main.html#pynprcalc.calc.main.Calc.insertar">[documentos]</a>    <span class="k">def</span> <span class="nf">insertar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Insertar un número en el *stack* de la calculadora.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            n (float): Número a insertar.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stack</span><span class="o">.</span><span class="n">insertar</span><span class="p">(</span><span class="n">n</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Calc.ejecutar"><a class="viewcode-back" href="../../../calc.main.html#pynprcalc.calc.main.Calc.ejecutar">[documentos]</a>    <span class="k">def</span> <span class="nf">ejecutar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comando</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Ejecutar un comando en la calculadora.</span>
+
+<span class="sd">        Si el comando es un número, lo agrega al *stack*.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            comando (Union[str, float]): Comando a ejecutar.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError cuando el comando no existe.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span> <span class="c1"># en el caso que sea un numero</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_stack</span><span class="o">.</span><span class="n">insertar</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">comando</span><span class="p">))</span>
+
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span> <span class="c1"># en el caso que no sea un numero</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">funcion</span><span class="p">,</span> <span class="n">cant_args</span> <span class="o">=</span> <span class="n">comandos</span><span class="o">.</span><span class="n">obtener_funcion</span><span class="p">(</span><span class="n">comando</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span> <span class="c1"># en el caso que el comando no exista</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;el comando &quot;</span><span class="si">{}</span><span class="s1">&quot; no existe&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">comando</span><span class="p">))</span>
+
+            <span class="c1"># sacar la cantidad correcta de numeros desde el *stack*</span>
+            <span class="n">args</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cant_args</span><span class="p">):</span>
+                <span class="n">args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_stack</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+
+            <span class="c1"># usar esos argumentos para llamar la función y guardar el resultado</span>
+            <span class="c1"># en el stack</span>
+            <span class="c1"># si devuelve una lista es porque hay varios elementos a guardar</span>
+            <span class="n">resultado</span> <span class="o">=</span> <span class="n">funcion</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">resultado</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">resultado</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_stack</span><span class="o">.</span><span class="n">insertar</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_stack</span><span class="o">.</span><span class="n">insertar</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Calc.lista"><a class="viewcode-back" href="../../../calc.main.html#pynprcalc.calc.main.Calc.lista">[documentos]</a>    <span class="k">def</span> <span class="nf">lista</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Devuelve una lista que representa al *stack*.</span>
+
+<span class="sd">        Para por ejemplo mostrar el *stack* en pantalla y acceder a los</span>
+<span class="sd">        elementos sin usar ``pop()``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stack</span><span class="o">.</span><span class="n">lista</span><span class="p">()</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../../../index.html">Tabla de Contenidos</a></h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../calc.html">calc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../funciones.html">funciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../comandos.html">comandos</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Búsqueda rápida</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Ir a" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="Índice General"
+             >índice</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Índice de Módulos Python"
+             >módulos</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">documentación de pynprcalc - </a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Código de módulo</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Derechos de autor 2017, Martin Bernardi.
+      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
+    </div>
+  </body>
+</html>

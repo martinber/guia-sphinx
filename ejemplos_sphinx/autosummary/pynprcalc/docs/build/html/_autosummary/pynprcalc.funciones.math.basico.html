@@ -1,0 +1,418 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pynprcalc.funciones.math.basico &#8212; documentación de pynprcalc - </title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="pynprcalc.funciones.math.const" href="pynprcalc.funciones.math.const.html" />
+    <link rel="prev" title="pynprcalc.funciones.misc" href="pynprcalc.funciones.misc.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Índice General"
+             accesskey="I">índice</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Índice de Módulos Python"
+             >módulos</a> |</li>
+        <li class="right" >
+          <a href="pynprcalc.funciones.math.const.html" title="pynprcalc.funciones.math.const"
+             accesskey="N">siguiente</a> |</li>
+        <li class="right" >
+          <a href="pynprcalc.funciones.misc.html" title="pynprcalc.funciones.misc"
+             accesskey="P">anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">documentación de pynprcalc - </a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pynprcalc-funciones-math-basico">
+<h1>pynprcalc.funciones.math.basico<a class="headerlink" href="#pynprcalc-funciones-math-basico" title="Enlazar permanentemente con este título">¶</a></h1>
+<p class="rubric">Functions</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#pynprcalc.funciones.math.basico.cuadrado" title="pynprcalc.funciones.math.basico.cuadrado"><code class="xref py py-obj docutils literal"><span class="pre">cuadrado</span></code></a>(x)</td>
+<td>El cuadrado de un número.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#pynprcalc.funciones.math.basico.division" title="pynprcalc.funciones.math.basico.division"><code class="xref py py-obj docutils literal"><span class="pre">division</span></code></a>(x,&nbsp;y)</td>
+<td>La división de dos números.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#pynprcalc.funciones.math.basico.inverso" title="pynprcalc.funciones.math.basico.inverso"><code class="xref py py-obj docutils literal"><span class="pre">inverso</span></code></a>(x)</td>
+<td>El inverso de un número.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#pynprcalc.funciones.math.basico.opuesto" title="pynprcalc.funciones.math.basico.opuesto"><code class="xref py py-obj docutils literal"><span class="pre">opuesto</span></code></a>(x)</td>
+<td>El opuesto de un número.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#pynprcalc.funciones.math.basico.potencia" title="pynprcalc.funciones.math.basico.potencia"><code class="xref py py-obj docutils literal"><span class="pre">potencia</span></code></a>(x,&nbsp;y)</td>
+<td>Potencia de dos números.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#pynprcalc.funciones.math.basico.producto" title="pynprcalc.funciones.math.basico.producto"><code class="xref py py-obj docutils literal"><span class="pre">producto</span></code></a>(x,&nbsp;y)</td>
+<td>Producto de dos números.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#pynprcalc.funciones.math.basico.raiz" title="pynprcalc.funciones.math.basico.raiz"><code class="xref py py-obj docutils literal"><span class="pre">raiz</span></code></a>(x,&nbsp;y)</td>
+<td>La raíz enésima de un número.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#pynprcalc.funciones.math.basico.raiz_cuadrada" title="pynprcalc.funciones.math.basico.raiz_cuadrada"><code class="xref py py-obj docutils literal"><span class="pre">raiz_cuadrada</span></code></a>(x)</td>
+<td>La raiz cuadrada de un número.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#pynprcalc.funciones.math.basico.resta" title="pynprcalc.funciones.math.basico.resta"><code class="xref py py-obj docutils literal"><span class="pre">resta</span></code></a>(x,&nbsp;y)</td>
+<td>Resta de dos números.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#pynprcalc.funciones.math.basico.suma" title="pynprcalc.funciones.math.basico.suma"><code class="xref py py-obj docutils literal"><span class="pre">suma</span></code></a>(x,&nbsp;y)</td>
+<td>Suma de dos números.</td>
+</tr>
+</tbody>
+</table>
+<span class="target" id="module-pynprcalc.funciones.math.basico"></span><p>Funciones matemáticas básicas.</p>
+<dl class="function">
+<dt id="pynprcalc.funciones.math.basico.cuadrado">
+<code class="descclassname">pynprcalc.funciones.math.basico.</code><code class="descname">cuadrado</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pynprcalc/funciones/math/basico.html#cuadrado"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#pynprcalc.funciones.math.basico.cuadrado" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>El cuadrado de un número.</p>
+<div class="math">
+\[x^2\]</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)"><em>float</em></a>) &#8211; Base.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Devuelve:</th><td class="field-body">El cuadrado.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Tipo del valor devuelto:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pynprcalc.funciones.math.basico.division">
+<code class="descclassname">pynprcalc.funciones.math.basico.</code><code class="descname">division</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pynprcalc/funciones/math/basico.html#division"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#pynprcalc.funciones.math.basico.division" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>La división de dos números.</p>
+<div class="math">
+\[\frac{x}{y}\]</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)"><em>float</em></a>) &#8211; Dividendo.</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)"><em>float</em></a>) &#8211; Divisor.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Devuelve:</th><td class="field-body"><p class="first">El cociente.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Tipo del valor devuelto:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)">float</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pynprcalc.funciones.math.basico.inverso">
+<code class="descclassname">pynprcalc.funciones.math.basico.</code><code class="descname">inverso</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pynprcalc/funciones/math/basico.html#inverso"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#pynprcalc.funciones.math.basico.inverso" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>El inverso de un número.</p>
+<div class="math">
+\[\frac{1}{x}\]</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)"><em>float</em></a>) &#8211; Número a invertir.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Devuelve:</th><td class="field-body">El inverso.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Tipo del valor devuelto:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pynprcalc.funciones.math.basico.opuesto">
+<code class="descclassname">pynprcalc.funciones.math.basico.</code><code class="descname">opuesto</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pynprcalc/funciones/math/basico.html#opuesto"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#pynprcalc.funciones.math.basico.opuesto" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>El opuesto de un número.</p>
+<div class="math">
+\[-x\]</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)"><em>float</em></a>) &#8211; Número a calcular el opuesto.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Devuelve:</th><td class="field-body">El opuesto.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Tipo del valor devuelto:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pynprcalc.funciones.math.basico.potencia">
+<code class="descclassname">pynprcalc.funciones.math.basico.</code><code class="descname">potencia</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pynprcalc/funciones/math/basico.html#potencia"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#pynprcalc.funciones.math.basico.potencia" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Potencia de dos números.</p>
+<div class="math">
+\[x^y\]</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)"><em>float</em></a>) &#8211; Base.</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)"><em>float</em></a>) &#8211; Exponente.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Devuelve:</th><td class="field-body"><p class="first">La potencia.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Tipo del valor devuelto:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)">float</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pynprcalc.funciones.math.basico.producto">
+<code class="descclassname">pynprcalc.funciones.math.basico.</code><code class="descname">producto</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pynprcalc/funciones/math/basico.html#producto"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#pynprcalc.funciones.math.basico.producto" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Producto de dos números.</p>
+<div class="math">
+\[x y\]</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)"><em>float</em></a>) &#8211; Factor.</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)"><em>float</em></a>) &#8211; Factor.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Devuelve:</th><td class="field-body"><p class="first">El producto.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Tipo del valor devuelto:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)">float</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pynprcalc.funciones.math.basico.raiz">
+<code class="descclassname">pynprcalc.funciones.math.basico.</code><code class="descname">raiz</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pynprcalc/funciones/math/basico.html#raiz"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#pynprcalc.funciones.math.basico.raiz" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>La raíz enésima de un número.</p>
+<div class="math">
+\[\sqrt[y]{x}\]</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)"><em>float</em></a>) &#8211; Radicando.</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)"><em>float</em></a>) &#8211; Índice.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Devuelve:</th><td class="field-body"><p class="first">La raíz.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Tipo del valor devuelto:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)">float</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pynprcalc.funciones.math.basico.raiz_cuadrada">
+<code class="descclassname">pynprcalc.funciones.math.basico.</code><code class="descname">raiz_cuadrada</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pynprcalc/funciones/math/basico.html#raiz_cuadrada"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#pynprcalc.funciones.math.basico.raiz_cuadrada" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>La raiz cuadrada de un número.</p>
+<div class="math">
+\[\sqrt{x}\]</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)"><em>float</em></a>) &#8211; Radicando.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Devuelve:</th><td class="field-body">La raíz cuadrada.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Tipo del valor devuelto:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pynprcalc.funciones.math.basico.resta">
+<code class="descclassname">pynprcalc.funciones.math.basico.</code><code class="descname">resta</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pynprcalc/funciones/math/basico.html#resta"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#pynprcalc.funciones.math.basico.resta" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Resta de dos números.</p>
+<div class="math">
+\[x - y\]</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)"><em>float</em></a>) &#8211; Minuendo.</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)"><em>float</em></a>) &#8211; Sustraendo.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Devuelve:</th><td class="field-body"><p class="first">La resta.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Tipo del valor devuelto:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)">float</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pynprcalc.funciones.math.basico.suma">
+<code class="descclassname">pynprcalc.funciones.math.basico.</code><code class="descname">suma</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pynprcalc/funciones/math/basico.html#suma"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#pynprcalc.funciones.math.basico.suma" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Suma de dos números.</p>
+<div class="math">
+\[x + y\]</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)"><em>float</em></a>) &#8211; Sumando.</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)"><em>float</em></a>) &#8211; Sumando.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Devuelve:</th><td class="field-body"><p class="first">La suma.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Tipo del valor devuelto:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(en Python versión 2.7)">float</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Tabla de Contenidos</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pynprcalc.calc.main.html">pynprcalc.calc.main</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pynprcalc.calc.ui.html">pynprcalc.calc.ui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pynprcalc.funciones.misc.html">pynprcalc.funciones.misc</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pynprcalc.funciones.math.basico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pynprcalc.funciones.math.const.html">pynprcalc.funciones.math.const</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pynprcalc.funciones.math.exp.html">pynprcalc.funciones.math.exp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pynprcalc.funciones.math.trig.html">pynprcalc.funciones.math.trig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pynprcalc.funciones.math.misc.html">pynprcalc.funciones.math.misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pynprcalc.comandos.html">pynprcalc.comandos</a></li>
+</ul>
+
+  <h4>Tema anterior</h4>
+  <p class="topless"><a href="pynprcalc.funciones.misc.html"
+                        title="capítulo anterior">pynprcalc.funciones.misc</a></p>
+  <h4>Próximo tema</h4>
+  <p class="topless"><a href="pynprcalc.funciones.math.const.html"
+                        title="próximo capítulo">pynprcalc.funciones.math.const</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Esta página</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/_autosummary/pynprcalc.funciones.math.basico.rst.txt"
+            rel="nofollow">Mostrar el código</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Búsqueda rápida</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Ir a" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Índice General"
+             >índice</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Índice de Módulos Python"
+             >módulos</a> |</li>
+        <li class="right" >
+          <a href="pynprcalc.funciones.math.const.html" title="pynprcalc.funciones.math.const"
+             >siguiente</a> |</li>
+        <li class="right" >
+          <a href="pynprcalc.funciones.misc.html" title="pynprcalc.funciones.misc"
+             >anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">documentación de pynprcalc - </a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Derechos de autor 2017, Martin Bernardi.
+      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
+    </div>
+  </body>
+</html>

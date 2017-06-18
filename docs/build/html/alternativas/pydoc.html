@@ -172,16 +172,20 @@
 <h1>Usar pydoc<a class="headerlink" href="#usar-pydoc" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Imagen de ejemplo:</p>
 <img alt="../_images/reemplazar_ext_html_pydoc.png" src="../_images/reemplazar_ext_html_pydoc.png" />
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Revisar.</p>
-</div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">batch_ffmpeg</span>
+<p>Este programa viene incluido con <em>Python</em>, permite ver los <em>docstrings</em> de
+cualquier módulo de diferentes formas.</p>
+<p>Muestro como mirar una página web generada a partir de la documentación:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">mi_proyecto</span>
 <span class="n">pydoc3</span> <span class="o">-</span><span class="n">p</span> <span class="mi">9876</span>
-
-<span class="n">Despues</span> <span class="n">apretar</span> <span class="n">b</span> <span class="n">y</span> <span class="n">Enter</span>
 </pre></div>
 </div>
+<p>Al correr esos dos comandos se inicia un servidor web en el puerto 9876, para
+abrir el navegador se puede apretar <code class="docutils literal"><span class="pre">b</span></code> y luego <code class="docutils literal"><span class="pre">Enter</span></code>.</p>
+<p>En la web se va a ver la documentación de todo lo que haya instalado en la
+computadora, a nosotros nos interesa la sección <code class="docutils literal"><span class="pre">.</span></code> que es la documentación de
+la carpeta actual (donde ejecutamos el comando).</p>
+<p>De esta forma no se guardan los <code class="docutils literal"><span class="pre">html</span></code> generados en ningún lado. Se pueden
+guardar pero no creo que valga la pena.</p>
 </div>
 
 

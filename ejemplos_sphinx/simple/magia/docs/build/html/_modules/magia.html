@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>magia &mdash; documentación de Magia - </title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Magia - " href="../index.html"/>
+        <link rel="up" title="Código de módulo" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Magia
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Magia</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Código de módulo</a> &raquo;</li>
+        
+      <li>magia</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Código fuente para magia</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">from</span> <span class="nn">cartas</span> <span class="k">import</span> <span class="n">Mazo</span><span class="p">,</span> <span class="n">Carta</span>
+
+<div class="viewcode-block" id="_explicar"><a class="viewcode-back" href="../index.html#magia._explicar">[documentos]</a><span class="k">def</span> <span class="nf">_explicar</span><span class="p">(</span><span class="n">texto</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Limpiar la pantalla y mostrar in texto recuadrado.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        texto (str): Texto a mostrar en pantalla.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            -----------------------------------------------------</span>
+<span class="sd">            Esto es un texto recuadrado</span>
+<span class="sd">            -----------------------------------------------------</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;cls&#39;</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;nt&#39;</span> <span class="k">else</span> <span class="s1">&#39;clear&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----------------------------------------------------&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----------------------------------------------------&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="_mostrar_pilas"><a class="viewcode-back" href="../index.html#magia._mostrar_pilas">[documentos]</a><span class="k">def</span> <span class="nf">_mostrar_pilas</span><span class="p">(</span><span class="n">pilas</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Imprimir cuarto pilas (mazos) en columnas.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        pilas (magia.cartas.Mazo): Mazos a mostrar en pantalla.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># obtener cantidad máxima de lineas a imprimir</span>
+    <span class="n">lineas</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">pilas</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cant_cartas</span><span class="p">(),</span>
+                 <span class="n">pilas</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cant_cartas</span><span class="p">(),</span>
+                 <span class="n">pilas</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">cant_cartas</span><span class="p">())</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:&lt;14}</span><span class="s2"> </span><span class="si">{:&lt;14}</span><span class="s2"> </span><span class="si">{:&lt;14}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Pila 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Pila 2&quot;</span><span class="p">,</span> <span class="s2">&quot;Pila 3&quot;</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lineas</span><span class="p">):</span>
+        <span class="n">cartas</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># cartas a imprimir en esta línea</span>
+        <span class="k">for</span> <span class="n">pila</span> <span class="ow">in</span> <span class="n">pilas</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">cartas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">pila</span><span class="o">.</span><span class="n">cartas</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                <span class="n">cartas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:&lt;14}</span><span class="s2"> </span><span class="si">{:&lt;14}</span><span class="s2"> </span><span class="si">{:&lt;14}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cartas</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cartas</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">cartas</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span></div>
+
+<div class="viewcode-block" id="truco_de_magia"><a class="viewcode-back" href="../index.html#magia.truco_de_magia">[documentos]</a><span class="k">def</span> <span class="nf">truco_de_magia</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Hace un truco de magia usando las cartas.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># mazo con todas las cartas</span>
+    <span class="n">mazo_completo</span> <span class="o">=</span> <span class="n">Mazo</span><span class="p">()</span>
+    <span class="n">mazo_completo</span><span class="o">.</span><span class="n">generar</span><span class="p">(</span><span class="s2">&quot;español&quot;</span><span class="p">,</span> <span class="mi">48</span><span class="p">)</span>
+
+    <span class="n">explicar</span><span class="p">(</span><span class="s2">&quot;Conseguí un mazo&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mazo_completo</span><span class="p">)</span>
+
+    <span class="c1"># cartas usadas en el truco, son 20</span>
+    <span class="n">mazo</span> <span class="o">=</span> <span class="n">Mazo</span><span class="p">()</span>
+
+    <span class="c1"># crear 3 pilas en donde se ponen las cartas</span>
+    <span class="n">pilas</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">pilas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Mazo</span><span class="p">())</span>
+
+    <span class="c1"># mezclar mazo</span>
+    <span class="n">mazo_completo</span><span class="o">.</span><span class="n">mezclar</span><span class="p">()</span>
+    <span class="n">explicar</span><span class="p">(</span><span class="s2">&quot;Mezclé el mazo&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mazo_completo</span><span class="p">)</span>
+
+    <span class="c1"># tomar 21 cartas del mazo y ponerlas en la mano</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">21</span><span class="p">):</span>
+        <span class="n">mazo</span><span class="o">.</span><span class="n">poner</span><span class="p">(</span><span class="n">mazo_completo</span><span class="o">.</span><span class="n">tomar</span><span class="p">())</span>
+
+    <span class="n">explicar</span><span class="p">(</span><span class="s2">&quot;Tomé 21 cartas del mazo, a las demás las descarté</span><span class="se">\n</span><span class="s2">&quot;</span>
+             <span class="s2">&quot;Pensá en una carta, cuando estés listo apretá Enter&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mazo</span><span class="p">)</span>
+    <span class="nb">input</span><span class="p">()</span>
+
+    <span class="c1"># truco de magia en sí</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+
+        <span class="c1"># poner las cartas del mazo en las pilas ordenadamente</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># pila en donde poner la siguiente carta</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">21</span><span class="p">):</span>
+            <span class="n">pilas</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">poner</span><span class="p">(</span><span class="n">mazo</span><span class="o">.</span><span class="n">tomar</span><span class="p">())</span>
+            <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">p</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+            
+            <span class="n">explicar</span><span class="p">(</span><span class="s2">&quot;Estoy poniendo las cartas en pilas&quot;</span><span class="p">)</span>
+            <span class="n">mostrar_pilas</span><span class="p">(</span><span class="n">pilas</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+
+        <span class="n">explicar</span><span class="p">(</span><span class="s2">&quot;Terminé de poner las cartas en pilas</span><span class="se">\n</span><span class="s2">&quot;</span>
+                 <span class="s2">&quot;Decime en qué pila está tu carta, ingresa 1, 2 o 3&quot;</span><span class="p">)</span>
+        <span class="n">mostrar_pilas</span><span class="p">(</span><span class="n">pilas</span><span class="p">)</span>
+        <span class="n">pila_elegida</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span>
+
+        <span class="c1"># poner las cartas en el mazo nuevamente, la pila elegida debe ir al</span>
+        <span class="c1"># medio</span>
+        <span class="n">orden_pilas</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="c1"># orden en el cual poner las pilas en el mazo</span>
+        <span class="n">orden_pilas</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">pila_elegida</span><span class="p">)</span> <span class="c1"># sacar el número de la pila elegida</span>
+        <span class="n">orden_pilas</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pila_elegida</span><span class="p">)</span> <span class="c1"># ponerlo en el segundo lugar</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">orden_pilas</span><span class="p">:</span>
+            <span class="n">mazo</span><span class="o">.</span><span class="n">poner</span><span class="p">(</span><span class="n">pilas</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="c1"># obtener la carta pensada tomando la carta número 11</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">mazo</span><span class="o">.</span><span class="n">tomar</span><span class="p">()</span>
+
+    <span class="n">carta_mágica</span> <span class="o">=</span> <span class="n">mazo</span><span class="o">.</span><span class="n">tomar</span><span class="p">()</span>
+    <span class="n">explicar</span><span class="p">(</span><span class="s2">&quot;La carta que pensaste es:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">carta_mágica</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span>
+<span class="s2">&quot;             *</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot;       *   *</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot;     *    \* / *</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot;       * --.:. *</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot;      *   * :\ -</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot;        .*  | </span><span class="se">\\\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot;       * *     </span><span class="se">\\\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot;     .  *       </span><span class="se">\\\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot;      ..        /</span><span class="se">\\</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot;     *          |</span><span class="se">\\</span><span class="s2">)|</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot;   .   *         \ |</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot;  . . *           |/</span><span class="se">\\\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot;     .* *         /  </span><span class="se">\\\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot;   *              </span><span class="se">\\</span><span class="s2"> / </span><span class="se">\\\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot; *  .  *           </span><span class="se">\\</span><span class="s2">   </span><span class="se">\\\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot;    * .  </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot;   *    *    </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="s2">&quot;  .   *    *  </span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Martin Bernardi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

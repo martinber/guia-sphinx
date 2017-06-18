@@ -1,0 +1,480 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cartas &mdash; documentación de Magia - </title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Magia - " href="../index.html"/>
+        <link rel="up" title="Código de módulo" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Magia
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Magia</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Código de módulo</a> &raquo;</li>
+        
+      <li>cartas</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Código fuente para cartas</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Mazos y cartas.</span>
+
+<span class="sd">Contiene un Mazo y una clase Carta.</span>
+
+<span class="sd">.. rubric:: Tipos de mazos y cartas disponibles:</span>
+
+<span class="sd">* &quot;español&quot;: Cartas del 1 al 12 más dos comodines. Los palos son &quot;espada&quot;,</span>
+<span class="sd">  &quot;oro&quot;, &quot;basto&quot; y &quot;copas&quot;.</span>
+
+<span class="sd">* &quot;francés&quot;: Cartas del 2 al 10 más las A, J, Q, K y dos comodines. Los palos</span>
+<span class="sd">  son &quot;pica&quot;, &quot;corazón&quot;, &quot;trébol&quot; y &quot;diamantes&quot;.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">FIGURAS_POSIBLES</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Figuras soportadas por Carta.</span>
+
+<span class="sd">No incluye &quot;comodín&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">PALOS_POSIBLES</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Palos soportados por Carta.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">FIGURAS_POSIBLES</span><span class="p">[</span><span class="s2">&quot;español&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">PALOS_POSIBLES</span><span class="p">[</span><span class="s2">&quot;español&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;espada&quot;</span><span class="p">,</span> <span class="s2">&quot;oro&quot;</span><span class="p">,</span> <span class="s2">&quot;basto&quot;</span><span class="p">,</span> <span class="s2">&quot;copas&quot;</span><span class="p">]</span>
+
+<span class="n">FIGURAS_POSIBLES</span><span class="p">[</span><span class="s2">&quot;francés&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;J&quot;</span><span class="p">,</span> <span class="s2">&quot;Q&quot;</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">]</span>
+<span class="n">PALOS_POSIBLES</span><span class="p">[</span><span class="s2">&quot;francés&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pica&quot;</span><span class="p">,</span> <span class="s2">&quot;corazón&quot;</span><span class="p">,</span> <span class="s2">&quot;trébol&quot;</span><span class="p">,</span> <span class="s2">&quot;diamante&quot;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="Mazo"><a class="viewcode-back" href="../index.html#cartas.Mazo">[documentos]</a><span class="k">class</span> <span class="nc">Mazo</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Un mazo de cartas.</span>
+
+<span class="sd">    Al crear el mazo está vacío.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># pep 484</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cartas</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="Mazo.generar"><a class="viewcode-back" href="../index.html#cartas.Mazo.generar">[documentos]</a>    <span class="k">def</span> <span class="nf">generar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tipo</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;español&quot;</span><span class="p">,</span> <span class="n">juego</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Crear un mazo estándar.</span>
+
+<span class="sd">        .. rubric:: Tipos y Juegos disponibles</span>
+
+<span class="sd">        * &quot;español&quot;: Cartas del 1 al 12 más dos comodines. Los palos son espada,</span>
+<span class="sd">          oro, basto y copas.</span>
+
+<span class="sd">          * 50: Todas las cartas del mazo más dos comodines.</span>
+
+<span class="sd">          * 48: Todas las cartas del mazo menos los dos comodines.</span>
+
+<span class="sd">          * 40: Todas las cartas del mazo menos los comodines, los 8 y los 9.</span>
+
+<span class="sd">          * 36: Todas las cartas del mazo menos los comodines, los 8, los 9 y</span>
+<span class="sd">            los 10.</span>
+
+<span class="sd">        * &quot;francés&quot;: Cartas del 2 al 10 más las A, J, Q, K y dos comodines. Los</span>
+<span class="sd">          palos son pica, corazón, trébol y diamantes.</span>
+
+<span class="sd">          * 54: Todas las cartas del mazo más dos comodines.</span>
+
+<span class="sd">          * 52: Todas las cartas del mazo menos los dos comodines.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            tipo: Tipo de mazo a utilizar. &quot;español&quot; o &quot;francés&quot;.</span>
+<span class="sd">            juego: Número de cartas a utilizar. Los posibles juegos dependen del</span>
+<span class="sd">                tipo de mazo. Ver posibilidades abajo</span>
+
+<span class="sd">        Attributes:</span>
+<span class="sd">            cartas: Lista que contiene a las cartas del mazo, los primeros</span>
+<span class="sd">                elementos son los que están más abajo en el mazo y los últimos</span>
+<span class="sd">                son los que están arriba del mazo.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">tipo</span> <span class="o">==</span> <span class="s2">&quot;español&quot;</span><span class="p">:</span>
+            <span class="n">palos</span> <span class="o">=</span> <span class="n">PALOS_POSIBLES</span><span class="p">[</span><span class="s2">&quot;español&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">juego</span> <span class="o">==</span> <span class="mi">50</span><span class="p">:</span>
+                <span class="n">figuras</span> <span class="o">=</span> <span class="n">FIGURAS_POSIBLES</span><span class="p">[</span><span class="s2">&quot;español&quot;</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">generar_personalizado</span><span class="p">(</span><span class="s2">&quot;español&quot;</span><span class="p">,</span> <span class="n">figuras</span><span class="p">,</span> <span class="n">palos</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">juego</span> <span class="o">==</span> <span class="mi">48</span><span class="p">:</span>
+                <span class="n">figuras</span> <span class="o">=</span> <span class="n">FIGURAS_POSIBLES</span><span class="p">[</span><span class="s2">&quot;español&quot;</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">generar_personalizado</span><span class="p">(</span><span class="s2">&quot;español&quot;</span><span class="p">,</span> <span class="n">figuras</span><span class="p">,</span> <span class="n">palos</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">juego</span> <span class="o">==</span> <span class="mi">40</span><span class="p">:</span>
+                <span class="n">figuras</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">generar_personalizado</span><span class="p">(</span><span class="s2">&quot;español&quot;</span><span class="p">,</span> <span class="n">figuras</span><span class="p">,</span> <span class="n">palos</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">juego</span> <span class="o">==</span> <span class="mi">40</span><span class="p">:</span>
+                <span class="n">figuras</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">generar_personalizado</span><span class="p">(</span><span class="s2">&quot;español&quot;</span><span class="p">,</span> <span class="n">figuras</span><span class="p">,</span> <span class="n">palos</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;juego </span><span class="si">{}</span><span class="s2"> inválido para mazo </span><span class="si">{}</span><span class="s2">&quot;</span>\
+                        <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">juego</span><span class="p">,</span> <span class="n">tipo</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">tipo</span> <span class="o">==</span> <span class="s2">&quot;francés&quot;</span><span class="p">:</span>
+            <span class="n">palos</span> <span class="o">=</span> <span class="n">PALOS_POSIBLES</span><span class="p">[</span><span class="s2">&quot;francés&quot;</span><span class="p">]</span>
+            <span class="n">figuras</span> <span class="o">=</span> <span class="n">FIGURAS_POSIBLES</span><span class="p">[</span><span class="s2">&quot;francés&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">juego</span> <span class="o">==</span> <span class="mi">54</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">generar_personalizado</span><span class="p">(</span><span class="s2">&quot;francés&quot;</span><span class="p">,</span> <span class="n">figuras</span><span class="p">,</span> <span class="n">palos</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">juego</span> <span class="o">==</span> <span class="mi">54</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">generar_personalizado</span><span class="p">(</span><span class="s2">&quot;francés&quot;</span><span class="p">,</span> <span class="n">figuras</span><span class="p">,</span> <span class="n">palos</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;juego </span><span class="si">{}</span><span class="s2"> inválido para mazo </span><span class="si">{}</span><span class="s2">&quot;</span>\
+                        <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">juego</span><span class="p">,</span> <span class="n">tipo</span><span class="p">))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;tipo </span><span class="si">{}</span><span class="s2"> inválido&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tipo</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Mazo.generar_personalizado"><a class="viewcode-back" href="../index.html#cartas.Mazo.generar_personalizado">[documentos]</a>    <span class="k">def</span> <span class="nf">generar_personalizado</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tipo</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">figuras</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span>
+            <span class="n">palos</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">cant_comodines</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generar mazo a partir de las figuras (números), palos y cantidad de</span>
+<span class="sd">        comodines.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            tipo: Tipo de mazo a utilizar. &quot;español&quot; o &quot;francés&quot;.</span>
+<span class="sd">            figuras: Figuras a utilizar, puede ser cualquier número o cualquier</span>
+<span class="sd">            string en el caso de tratarse de una letra. Ver abajo los</span>
+<span class="sd">                valores aceptados.</span>
+<span class="sd">            palos: Palos a utilizar, ver abajo los valores aceptados.</span>
+<span class="sd">            cant_comodines: Cantidad de comodines a utilizar.</span>
+
+<span class="sd">        .. rubric:: Valores aceptados</span>
+
+<span class="sd">        * &quot;español&quot;</span>
+
+<span class="sd">          * Figuras: int desde 1 al 12.</span>
+
+<span class="sd">          * Palos: &quot;espada&quot;, &quot;oro&quot;, &quot;basto&quot; y &quot;copas&quot;.</span>
+
+<span class="sd">        * &quot;francés&quot;</span>
+
+<span class="sd">          * Figuras: int desde 2 al 10, sino puede ser un str de los posibles:</span>
+<span class="sd">            &quot;A&quot;, &quot;J&quot;, &quot;Q&quot;, &quot;K&quot;.</span>
+
+<span class="sd">          * Palos: &quot;espada&quot;, &quot;oro&quot;, &quot;basto&quot; y copas&quot;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># chequeo de valores obtenidos</span>
+        <span class="k">for</span> <span class="n">figura</span> <span class="ow">in</span> <span class="n">figuras</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">figura</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">FIGURAS_POSIBLES</span><span class="p">[</span><span class="n">tipo</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;figura </span><span class="si">{}</span><span class="s2"> inválida&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">figura</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">palo</span> <span class="ow">in</span> <span class="n">palos</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">palo</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">PALOS_POSIBLES</span><span class="p">[</span><span class="n">tipo</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;palo </span><span class="si">{}</span><span class="s2"> inválido&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">palo</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cartas</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">palo</span> <span class="ow">in</span> <span class="n">palos</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">figura</span> <span class="ow">in</span> <span class="n">figuras</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cartas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Carta</span><span class="p">(</span><span class="n">tipo</span><span class="p">,</span> <span class="n">figura</span><span class="p">,</span> <span class="n">palo</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cant_comodines</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cartas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Carta</span><span class="p">(</span><span class="n">tipo</span><span class="p">,</span> <span class="s2">&quot;comodín&quot;</span><span class="p">))</span></div>
+                
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Las cartas se muestran en orden, comenzando por la superior.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">carta</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cartas</span><span class="p">):</span>
+            <span class="n">string</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">carta</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="k">return</span> <span class="n">string</span>
+
+<div class="viewcode-block" id="Mazo.mezclar"><a class="viewcode-back" href="../index.html#cartas.Mazo.mezclar">[documentos]</a>    <span class="k">def</span> <span class="nf">mezclar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Mezclar las cartas.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cartas</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mazo.tomar"><a class="viewcode-back" href="../index.html#cartas.Mazo.tomar">[documentos]</a>    <span class="k">def</span> <span class="nf">tomar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Tomar una carta del mazo.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cartas</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Mazo.poner"><a class="viewcode-back" href="../index.html#cartas.Mazo.poner">[documentos]</a>    <span class="k">def</span> <span class="nf">poner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Poner una carta o un mazo encima de este mazo.</span>
+
+<span class="sd">        Al poner un mazo se vacía al otro mazo.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="o">==</span> <span class="n">Mazo</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cartas</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">cartas</span><span class="p">)</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">vaciar</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="o">==</span> <span class="n">Carta</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cartas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;argumento inválido, debe ser un mazo o una carta&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mazo.vaciar"><a class="viewcode-back" href="../index.html#cartas.Mazo.vaciar">[documentos]</a>    <span class="k">def</span> <span class="nf">vaciar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Elimina todas las cartas del mazo.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cartas</span> <span class="o">=</span> <span class="p">[]</span></div>
+
+<div class="viewcode-block" id="Mazo.cant_cartas"><a class="viewcode-back" href="../index.html#cartas.Mazo.cant_cartas">[documentos]</a>    <span class="k">def</span> <span class="nf">cant_cartas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Obtener la cantidad de cartas del mazo.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cartas</span><span class="p">)</span></div></div>
+
+
+
+<div class="viewcode-block" id="Carta"><a class="viewcode-back" href="../index.html#cartas.Carta">[documentos]</a><span class="k">class</span> <span class="nc">Carta</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Representa a una carta.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        tipo: Tipo de mazo al que pertenece, &quot;español&quot; o &quot;francés&quot;.</span>
+<span class="sd">        figura: Figura de esta carta, ver FIGURAS_POSIBLES. Además puede ser</span>
+<span class="sd">            &quot;comodín&quot;.</span>
+<span class="sd">        palo: Palo al que pertenece esta carta, ver PALOS_POSIBLES. Si la figura</span>
+<span class="sd">            es &quot;comodín&quot;, el palo es None.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        tipo: Tipo de mazo al que pertenece, &quot;español&quot; o &quot;francés&quot;.</span>
+<span class="sd">        figura: Figura de esta carta, ver FIGURAS_POSIBLES. Además puede ser</span>
+<span class="sd">            &quot;comodín&quot;.</span>
+<span class="sd">        palo: Palo al que pertenece esta carta, ver PALOS_POSIBLES. Si la figura</span>
+<span class="sd">            es &quot;comodín&quot;, el palo es None.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tipo</span><span class="p">,</span> <span class="n">figura</span><span class="p">,</span> <span class="n">palo</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+
+        <span class="c1"># chequeo de valores obtenidos</span>
+        <span class="k">if</span> <span class="n">figura</span> <span class="o">!=</span> <span class="s2">&quot;comodín&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">figura</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">FIGURAS_POSIBLES</span><span class="p">[</span><span class="n">tipo</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;figura </span><span class="si">{}</span><span class="s2"> inválida&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">figura</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">palo</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">PALOS_POSIBLES</span><span class="p">[</span><span class="n">tipo</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;palo </span><span class="si">{}</span><span class="s2"> inválido&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">palo</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">palo</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">tipo</span> <span class="o">=</span> <span class="n">tipo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">figura</span> <span class="o">=</span> <span class="n">figura</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">palo</span> <span class="o">=</span> <span class="n">palo</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Representación de la carta, se muestra el palo y la figura en una misma</span>
+<span class="sd">        línea.</span>
+
+<span class="sd">        Primero el palo justificado a la izquierda y luego la figura.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">palo</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">figura</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{:&gt;2}</span><span class="s2"> - </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">figura</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">palo</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Martin Bernardi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
