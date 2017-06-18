@@ -171,18 +171,31 @@
             
   <div class="section" id="usar-pydoctor">
 <h1>Usar pydoctor<a class="headerlink" href="#usar-pydoctor" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>Si o si usa <em>Python 2</em>.</p>
+<p>Si o si usa <em>Python 2</em>, pero eso no significa que no pueda documentar código
+escrito en <em>Python 3</em>.</p>
 <p>Imagen de ejemplo:</p>
 <img alt="../_images/reemplazar_ext_html_pydoctor.png" src="../_images/reemplazar_ext_html_pydoctor.png" />
+<p>Con estos pasos se generarán archivos <code class="docutils literal"><span class="pre">html</span></code> en una carpeta llamada
+<code class="docutils literal"><span class="pre">apidoc</span></code>, que dentro tiene un <code class="docutils literal"><span class="pre">index.html</span></code> que es lo que nos interesa.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">mi_proyecto</span>
+<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pydoctor</span>
+</pre></div>
+</div>
+<p>Luego el comando depende de si se quiere documentar un <a class="reference internal" href="../index.html#glosario"><span class="std std-ref">módulo o un paquete</span></a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pydoctor</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">package</span> <span class="o">./</span> <span class="o">--</span><span class="n">docformat</span> <span class="n">plaintext</span>
+<span class="n">pydoctor</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">module</span> <span class="o">./</span><span class="n">modulo</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">docformat</span> <span class="n">plaintext</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Advertencia</p>
+<p class="last">Por alguna razón algunos módulos se muestran como <em>undocumented</em> en el
+<code class="docutils literal"><span class="pre">html</span></code> generado, todavía no sé por qué a <em>pydoctor</em> no le gustan algunos
+módulos.</p>
+</div>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Por hacer</p>
-<p class="last">Revisar.</p>
-</div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">batch_ffmpeg</span>
-<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pydoctor</span>
-<span class="n">pydoctor</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">package</span> <span class="o">./</span> <span class="o">--</span><span class="n">docformat</span> <span class="n">plaintext</span>
-<span class="n">pydoctor</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">module</span> <span class="o">./</span><span class="n">a</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">docformat</span> <span class="n">plaintext</span>
-</pre></div>
+<p class="last">Encontrar por qué. Ver <code class="docutils literal"><span class="pre">parse.py</span></code> y <code class="docutils literal"><span class="pre">convert.py</span></code> de <em>batch_ffmpeg</em>. En el
+<a class="reference internal" href="../ejemplos.html"><span class="doc">ejemplo</span></a> se puede ver el problema.</p>
 </div>
 </div>
 

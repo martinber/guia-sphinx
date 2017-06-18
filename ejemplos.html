@@ -97,7 +97,9 @@
 <li class="toctree-l1"><a class="reference internal" href="escribir.html">Escribir la documentación</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publicar.html">Publicar</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ejemplos</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#comparacion-temas">Comparación temas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sobre-documentar-desde-docstrings">Sobre documentar desde docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sobre-documentar-texto">Sobre documentar texto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pydoctor">pydoctor</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="recetas/inicio.html">Recetas</a></li>
@@ -167,32 +169,45 @@
             
   <div class="section" id="ejemplos">
 <h1>Ejemplos<a class="headerlink" href="#ejemplos" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>Como ejemplo, se puede ver el <a class="reference external" href="https://github.com/martinber/guia-sphinx">código fuente de esta guía</a>.</p>
-<p>Lo que es útil mirar es:</p>
+<div class="section" id="sobre-documentar-desde-docstrings">
+<h2>Sobre documentar desde docstrings<a class="headerlink" href="#sobre-documentar-desde-docstrings" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Hice varios ejemplos (6 en total) para <a class="reference download internal" href="_downloads/ejemplos_sphinx.zip" download=""><code class="xref download docutils literal"><span class="pre">descargar</span></code></a>. Hay dos para <a class="reference internal" href="recetas/inicio.html#tipos-receta"><span class="std std-ref">cada forma de documentar</span></a>:</p>
 <ul class="simple">
-<li>Cómo configurar <em>Sphinx</em> mirando <code class="docutils literal"><span class="pre">docs/source/conf.py</span></code>.</li>
-<li>Cómo escribir en <em>reStructuredText</em> mirando los <code class="docutils literal"><span class="pre">.rst</span></code> ubicados en
-<code class="docutils literal"><span class="pre">docs/source/</span></code>.</li>
-<li>Cómo incluir documentación desde <em>docstrings</em> mirando <code class="docutils literal"><span class="pre">docs/source/src/</span></code>.</li>
-<li>Cómo escribir los <em>docstrings</em> mirando los <code class="docutils literal"><span class="pre">.py</span></code> en <code class="docutils literal"><span class="pre">miproyecto/</span></code></li>
+<li>Receta simple: Se incluyen los <em>docstrings</em> directamente en <code class="docutils literal"><span class="pre">index.rst</span></code>,
+estos ejemplos no siguen la <a class="reference internal" href="introduccion.html#estructura"><span class="std std-ref">estructura de archivos recomendada</span></a>.<ul>
+<li><strong>introduccion</strong>: Documenta solamente un módulo de ejemplo.</li>
+<li><strong>magia</strong>: Tiene dos módulos.</li>
 </ul>
+</li>
+<li>Receta manual: Cada módulo está en una página separada que fue creada
+manualmente.<ul>
+<li><strong>batch_ffmpeg</strong>: Es un programa que no sigue la <a class="reference internal" href="introduccion.html#estructura"><span class="std std-ref">estructura de
+archivos recomendada</span></a>.</li>
+<li><strong>pynprcalc</strong>: Es una calculadora con varios módulos y que además tiene
+fórmulas matemáticas en la documentación.</li>
+</ul>
+</li>
+<li>Usando <em>autosummary</em>: Cada módulo está en una página separada generada
+automaticamente.<ul>
+<li><strong>batch_ffmpeg</strong>.</li>
+<li><strong>pynprcalc</strong>.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="sobre-documentar-texto">
+<h2>Sobre documentar texto<a class="headerlink" href="#sobre-documentar-texto" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Como ejemplo, se puede ver el <a class="reference external" href="https://github.com/martinber/guia-sphinx">código fuente de esta guía</a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
 <p class="last">Al ver los <code class="docutils literal"><span class="pre">.rst</span></code> desde <em>GitHub</em>, es necesario apretar el botón <em>Raw</em> para
 verlos en texto plano.</p>
 </div>
-<div class="section" id="comparacion-temas">
-<h2>Comparación temas<a class="headerlink" href="#comparacion-temas" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Para que vean que vale la pena usar el tema <em>Read The Docs</em> en lugar del
-original:</p>
-<div class="figure" id="id2">
-<img alt="_images/screenshot_alabaster.png" src="_images/screenshot_alabaster.png" />
-<p class="caption"><span class="caption-text">Tema <em>Alabaster</em>, usado por defecto</span></p>
 </div>
-<div class="figure" id="id3">
-<img alt="_images/screenshot_readthedocs.png" src="_images/screenshot_readthedocs.png" />
-<p class="caption"><span class="caption-text">Tema <em>Read the Docs</em>, usado por el proyecto <a class="reference external" href="https://readthedocs.org/">Read the Docs</a></span></p>
-</div>
+<div class="section" id="pydoctor">
+<h2>pydoctor<a class="headerlink" href="#pydoctor" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>También se puede ver la documentación generada por <em>pydoctor</em> siguiendo
+<a class="reference internal" href="alternativas/pydoctor.html"><span class="doc">estas instrucciones</span></a>.</p>
 </div>
 </div>
 

@@ -123,3 +123,8 @@ que la que viene por defecto::
   .. automodule:: {{ fullname }}
      :members:
      :private-members:
+
+Continuar
+---------
+
+Ahora solamente falta :ref:`generar la documentación! <generar_receta>`.

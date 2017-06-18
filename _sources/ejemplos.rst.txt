@@ -1,39 +1,52 @@
 Ejemplos
 ========
 
+Sobre documentar desde docstrings
+---------------------------------
+
+Hice varios ejemplos (6 en total) para :download:`descargar
+<../../ejemplos_sphinx.zip>`. Hay dos para :ref:`cada forma de documentar
+<tipos_receta>`:
+
+* Receta simple: Se incluyen los *docstrings* directamente en ``index.rst``,
+  estos ejemplos no siguen la :ref:`estructura de archivos recomendada
+  <estructura>`.
+
+  * **introduccion**: Documenta solamente un módulo de ejemplo.
+
+  * **magia**: Tiene dos módulos.
+
+* Receta manual: Cada módulo está en una página separada que fue creada
+  manualmente.
+
+  * **batch_ffmpeg**: Es un programa que no sigue la :ref:`estructura de
+    archivos recomendada <estructura>`.
+
+  * **pynprcalc**: Es una calculadora con varios módulos y que además tiene
+    fórmulas matemáticas en la documentación.
+
+* Usando *autosummary*: Cada módulo está en una página separada generada
+  automaticamente.
+
+  * **batch_ffmpeg**.
+
+  * **pynprcalc**.
+
+Sobre documentar texto
+----------------------
+
 Como ejemplo, se puede ver el `código fuente de esta guía`__.
 
 __ Repositorio_
-
-Lo que es útil mirar es:
-
-* Cómo configurar *Sphinx* mirando ``docs/source/conf.py``.
-
-* Cómo escribir en *reStructuredText* mirando los ``.rst`` ubicados en
-  ``docs/source/``.
-
-* Cómo incluir documentación desde *docstrings* mirando ``docs/source/src/``.
-
-* Cómo escribir los *docstrings* mirando los ``.py`` en ``miproyecto/``
 
 .. note::
     Al ver los ``.rst`` desde *GitHub*, es necesario apretar el botón *Raw* para
     verlos en texto plano.
 
-Comparación temas
------------------
-
-Para que vean que vale la pena usar el tema *Read The Docs* en lugar del
-original:
-
-.. figure:: ./imagenes/screenshot_alabaster.png
-
-   Tema *Alabaster*, usado por defecto
-
-.. figure:: ./imagenes/screenshot_readthedocs.png
-
-   Tema *Read the Docs*, usado por el proyecto `Read the Docs`_
-
-
 .. _Repositorio: https://github.com/martinber/guia-sphinx
-.. _Read the Docs: https://readthedocs.org/
+
+pydoctor
+--------
+
+También se puede ver la documentación generada por *pydoctor* siguiendo
+:doc:`estas instrucciones <./alternativas/pydoctor>`.

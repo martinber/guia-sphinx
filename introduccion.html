@@ -178,15 +178,15 @@ la foto.</p>
 <p>A partir de eso, se genera una documentación que se ve algo así:</p>
 <img alt="_images/reemplazar_ext_html.png" src="_images/reemplazar_ext_html.png" />
 <p>Al documentar texto hay que escribir unos archivos <code class="docutils literal"><span class="pre">.rst</span></code> en
-<a href="#id2"><span class="problematic" id="id3">`reStructuredText`_</span></a>, un ejemplo de eso es esta guía:</p>
+<a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a>, un ejemplo de eso es esta guía:</p>
 <img alt="_images/texto.png" src="_images/texto.png" />
 <p>Y al generar el <em>html</em> se obtiene lo que estás viendo ahora.</p>
 <p>La documentación se escribe en archivos <code class="docutils literal"><span class="pre">.rst</span></code>, que están ubicados en una
 carpeta llamada <code class="docutils literal"><span class="pre">source</span></code>. A partir de estos archivos, que se escriben en
-<a href="#id4"><span class="problematic" id="id5">`reStructuredText`_</span></a>, se genera la página web. En esos mismos archivos <code class="docutils literal"><span class="pre">.rst</span></code>
+<a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a>, se genera la página web. En esos mismos archivos <code class="docutils literal"><span class="pre">.rst</span></code>
 uno especifica qué <em>docstrings</em> extraer desde el código fuente (Python). Más
 adelante hay ejemplos y creo que se entiende mejor.</p>
-<p>Los archivos y carpetas pueden organizarse de varias formas, la forma
+<p id="estructura">Los archivos y carpetas pueden organizarse de varias formas, la forma
 <a class="reference external" href="http://docs.python-guide.org/en/latest/writing/structure/">recomendada</a> de organizar el proyecto es:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>.
 ├── docs
@@ -209,14 +209,14 @@ adelante hay ejemplos y creo que se entiende mejor.</p>
 </div>
 <p>En <code class="docutils literal"><span class="pre">docs</span></code> va todo lo relacionado con la documentación, dentro hay un
 <code class="docutils literal"><span class="pre">Makefile</span></code> y las carpetas <code class="docutils literal"><span class="pre">source</span></code> y <code class="docutils literal"><span class="pre">build</span></code>.</p>
-<p><code class="docutils literal"><span class="pre">source</span></code> tiene la documentación escrita en <a href="#id6"><span class="problematic" id="id7">`reStructuredText`_</span></a> y un archivo
-<code class="docutils literal"><span class="pre">conf.py</span></code> con las configuraciones usadas por <a href="#id8"><span class="problematic" id="id9">`Sphinx`_</span></a>.  Dentro de <code class="docutils literal"><span class="pre">build</span></code>
-está la misma documentación en <em>html</em> ya generada por <a href="#id10"><span class="problematic" id="id11">`Sphinx`_</span></a>. Por último el
+<p><code class="docutils literal"><span class="pre">source</span></code> tiene la documentación escrita en <a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a> y un archivo
+<code class="docutils literal"><span class="pre">conf.py</span></code> con las configuraciones usadas por <a class="reference external" href="http://www.sphinx-doc.org/en/stable/">Sphinx</a>.  Dentro de <code class="docutils literal"><span class="pre">build</span></code>
+está la misma documentación en <em>html</em> ya generada por <a class="reference external" href="http://www.sphinx-doc.org/en/stable/">Sphinx</a>. Por último el
 <code class="docutils literal"><span class="pre">Makefile</span></code> permite generar la documentación (que se pone en <code class="docutils literal"><span class="pre">build</span></code>) con un
 comando.</p>
 <p>Después en otra carpeta aparte, <code class="docutils literal"><span class="pre">miproyecto</span></code> está el código. <code class="docutils literal"><span class="pre">LICENSE.txt</span></code> y
 <code class="docutils literal"><span class="pre">README.md</span></code> se suelen agregar para presentar el proyecto en por ejemplo
-<a href="#id12"><span class="problematic" id="id13">`GitHub`_</span></a>.</p>
+<a class="reference external" href="https://github.com/">GitHub</a>.</p>
 </div>
 
 

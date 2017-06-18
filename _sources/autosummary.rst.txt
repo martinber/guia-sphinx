@@ -1,6 +1,0 @@
-Autosummary
-===========
-
-.. todo::
-
-  Hacer

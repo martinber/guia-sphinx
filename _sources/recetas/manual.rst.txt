@@ -13,7 +13,8 @@ Los *docstrings* van a estar donde uno ponga las directivas ``.. automodule``,
 esto puede ir en cualquier lado. Yo voy a usar una estructura que me parece la
 mejor para proyectos grandes.
 
-En este caso voy a documentar el programa de ejemplo *pynprcalc*.
+En este caso voy a documentar el programa de :doc:`ejemplo *pynprcalc*
+<../ejemplos>`.
 
 Escribir
 --------
@@ -97,3 +98,8 @@ dar el ejemplo para el archivo ``pynprcalc.funciones.misc.rst``::
 Y así se continúa para cada módulo/paquete que uno quiera. Hay que acordarse de
 que cada vez que uno crea un ``.rst`` éste debe ser incluido en algún
 ``toctree``.
+
+Continuar
+---------
+
+Ahora solamente falta :ref:`generar la documentación! <generar_receta>`.

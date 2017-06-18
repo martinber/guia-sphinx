@@ -34,6 +34,8 @@ carpeta llamada ``source``. A partir de estos archivos, que se escriben en
 uno especifica qué *docstrings* extraer desde el código fuente (Python). Más
 adelante hay ejemplos y creo que se entiende mejor.
 
+.. _estructura:
+
 Los archivos y carpetas pueden organizarse de varias formas, la forma
 `recomendada`__ de organizar el proyecto es::
 
@@ -69,3 +71,7 @@ comando.
 Después en otra carpeta aparte, ``miproyecto`` está el código. ``LICENSE.txt`` y
 ``README.md`` se suelen agregar para presentar el proyecto en por ejemplo
 `GitHub`_.
+
+.. _Sphinx: http://www.sphinx-doc.org/en/stable/
+.. _reStructuredText: http://docutils.sourceforge.net/rst.html
+.. _GitHub: https://github.com/
