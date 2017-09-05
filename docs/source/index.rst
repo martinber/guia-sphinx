@@ -19,20 +19,21 @@ Esta es una guía simple sobre cómo documentar código escrito en python con
 
 Habría que leer las páginas en el orden en que están en la tabla de contenidos.
 El problema es que son bastantes cosas. Si no hay ganas de aprender tanto hay
-recetas que dicen cómo configurar y hacer todo bien rápido sin tantas
-explicaciones.
+páginas que explican simplificadamente los pasos a seguir para hacer varias
+cosas.
 
-Si solamente uno quiere editar una documentación, ir a "Editando".
-
-También hay una :download:`presentación que puede servir como introducción
-<../../presentacion.pdf>`.
+- Para crear un proyecto desde cero, ir a :doc:`Recetas <recetas/inicio>`.
+- Para editar una documentación ya existente, ir a :doc:`Cómo editar
+  <editando>`.
+- Para ver algunos ejemplos de documentaciones ya existentes, ir a
+  :doc:`Ejemplos <ejemplos>`.
+- Como introducción, se puede ir a la página :doc:`Introducción <introduccion>`
+  o ver estas :download:`diapositivas <../../presentacion.pdf>`.
 
 Como esta guía está en *GitHub* y está hecha en *Sphinx*, se puede `descargar,
 mirar, mandar correcciones y esas cosas`__.
 
 __ Repositorio_
-
-También hice varios :doc:`ejemplos <ejemplos>`.
 
 Notas
 -----
