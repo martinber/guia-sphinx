@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Cómo editar &mdash; documentación de Guia Sphinx - 1.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="genindex.html"/>
+        <link rel="search" title="Búsqueda" href="search.html"/>
+    <link rel="top" title="documentación de Guia Sphinx - 1.0" href="index.html"/>
+        <link rel="next" title="Alternativas" href="alternativas/inicio.html"/>
+        <link rel="prev" title="Método manual" href="recetas/manual.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Guia Sphinx
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduccion.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instalacion.html">Instalación y configuración</a></li>
+<li class="toctree-l1"><a class="reference internal" href="escribir.html">Escribir la documentación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publicar.html">Publicar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejemplos.html">Ejemplos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recetas/inicio.html">Recetas</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cómo editar</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#instalacion">Instalacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editando">Editando</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#leyendo">Leyendo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="alternativas/inicio.html">Alternativas</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Guia Sphinx</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Cómo editar</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/editando.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="como-editar">
+<h1>Cómo editar<a class="headerlink" href="#como-editar" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Acá explico un poco cómo hacer para editar una documentación rápidamente sin
+tener que aprender mucho sobre <em>Sphinx</em>.</p>
+<div class="section" id="instalacion">
+<h2>Instalacion<a class="headerlink" href="#instalacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Primero hay que instalar unos programas:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span>
+<span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">sphinx</span> <span class="n">sphinx_rtd_theme</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Después hay que conseguir la carpeta del proyecto que se quiere editar, la
+estructura de la carpeta es algo asi:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>.
+├── docs
+│   ├── build
+│   │   ├── ...
+│   │   └── html
+│   │       ├── ...
+│   │       └── index.html
+│   └── source
+│       ├── ...
+│       ├── conf.py
+│       └── index.rst
+├── ...
+└── Otras cosas...
+</pre></div>
+</div>
+<p>En <code class="docutils literal"><span class="pre">docs/</span></code> está todo lo relacionado a la documentación, afuera de <code class="docutils literal"><span class="pre">docs/</span></code>
+puede haber cualquier cosa.</p>
+<p>En <code class="docutils literal"><span class="pre">docs/source/</span></code> está lo que uno escribe, en <code class="docutils literal"><span class="pre">docs/build/</span></code> está la página
+web generada a partir de lo que uno escribió en <code class="docutils literal"><span class="pre">docs/source/</span></code>.</p>
+</div>
+<div class="section" id="editando">
+<h2>Editando<a class="headerlink" href="#editando" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Hay que editar los archivos <code class="docutils literal"><span class="pre">.rst</span></code> que están en la carpeta <code class="docutils literal"><span class="pre">docs/source/</span></code>,
+el formato se llama <em>ReStructured Text</em>, acá pongo links a algunos tutoriales:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">http://www.sphinx-doc.org/en/stable/rest.html</a></li>
+<li><a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickstart.html">http://docutils.sourceforge.net/docs/user/rst/quickstart.html</a></li>
+<li>La sección <a class="reference internal" href="escribir.html#guia-restructuredtext"><span class="std std-ref">sobre reStructuredText en esta guía</span></a></li>
+</ul>
+<p>Estos archivos se editan en cualquier editor de texto.</p>
+</div>
+<div class="section" id="leyendo">
+<h2>Leyendo<a class="headerlink" href="#leyendo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Antes de poder ver la documentación hay que generar todo lo que está dentro de
+<code class="docutils literal"><span class="pre">docs/build/</span></code> con unos comandos:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">docs</span>
+<span class="n">make</span> <span class="n">html</span>
+</pre></div>
+</div>
+<p>Para poder leer la documentación hay que abrir <code class="docutils literal"><span class="pre">docs/build/html/index.html</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="alternativas/inicio.html" class="btn btn-neutral float-right" title="Alternativas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="recetas/manual.html" class="btn btn-neutral" title="Método manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Martín Bernardi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

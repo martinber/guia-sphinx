@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Usar pydoctor &mdash; documentación de Guia Sphinx - 1.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Guia Sphinx - 1.0" href="../index.html"/>
+        <link rel="up" title="Alternativas" href="inicio.html"/>
+        <link rel="next" title="Usar pydoc" href="pydoc.html"/>
+        <link rel="prev" title="Alternativas" href="inicio.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Guia Sphinx
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduccion.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../instalacion.html">Instalación y configuración</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../escribir.html">Escribir la documentación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publicar.html">Publicar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ejemplos.html">Ejemplos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recetas/inicio.html">Recetas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editando.html">Cómo editar</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="inicio.html">Alternativas</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Usar pydoctor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pydoc.html">Usar pydoc</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Guia Sphinx</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="inicio.html">Alternativas</a> &raquo;</li>
+        
+      <li>Usar pydoctor</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/alternativas/pydoctor.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="usar-pydoctor">
+<h1>Usar pydoctor<a class="headerlink" href="#usar-pydoctor" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Si o si usa <em>Python 2</em>, pero eso no significa que no pueda documentar código
+escrito en <em>Python 3</em>.</p>
+<p>Imagen de ejemplo:</p>
+<img alt="../_images/reemplazar_ext_html_pydoctor.png" src="../_images/reemplazar_ext_html_pydoctor.png" />
+<p>Con estos pasos se generarán archivos <code class="docutils literal"><span class="pre">html</span></code> en una carpeta llamada
+<code class="docutils literal"><span class="pre">apidoc</span></code>, que dentro tiene un <code class="docutils literal"><span class="pre">index.html</span></code> que es lo que nos interesa.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">mi_proyecto</span>
+<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pydoctor</span>
+</pre></div>
+</div>
+<p>Luego el comando depende de si se quiere documentar un <a class="reference internal" href="../index.html#glosario"><span class="std std-ref">módulo o un paquete</span></a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pydoctor</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">package</span> <span class="o">./</span> <span class="o">--</span><span class="n">docformat</span> <span class="n">plaintext</span>
+<span class="n">pydoctor</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">module</span> <span class="o">./</span><span class="n">modulo</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">docformat</span> <span class="n">plaintext</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Advertencia</p>
+<p class="last">Por alguna razón algunos módulos se muestran como <em>undocumented</em> en el
+<code class="docutils literal"><span class="pre">html</span></code> generado, todavía no sé por qué a <em>pydoctor</em> no le gustan algunos
+módulos.</p>
+</div>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Encontrar por qué. Ver <code class="docutils literal"><span class="pre">parse.py</span></code> y <code class="docutils literal"><span class="pre">convert.py</span></code> de <em>batch_ffmpeg</em>. En el
+<a class="reference internal" href="../ejemplos.html"><span class="doc">ejemplo</span></a> se puede ver el problema.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pydoc.html" class="btn btn-neutral float-right" title="Usar pydoc" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="inicio.html" class="btn btn-neutral" title="Alternativas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Martín Bernardi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
