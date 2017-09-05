@@ -46,6 +46,8 @@ __ http://www.sphinx-doc.org/en/stable/rest.html
 
 Para hacerlo más corto explico lo más importante acá:
 
+.. _guia_reStructuredText:
+
 Guía reStructuredText
 ---------------------
 

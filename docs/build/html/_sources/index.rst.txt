@@ -11,6 +11,7 @@ Guía Sphinx
    publicar
    ejemplos
    recetas/inicio
+   editando
    alternativas/inicio
 
 Esta es una guía simple sobre cómo documentar código escrito en python con
@@ -20,6 +21,8 @@ Habría que leer las páginas en el orden en que están en la tabla de contenido
 El problema es que son bastantes cosas. Si no hay ganas de aprender tanto hay
 recetas que dicen cómo configurar y hacer todo bien rápido sin tantas
 explicaciones.
+
+Si solamente uno quiere editar una documentación, ir a "Editando".
 
 También hay una :download:`presentación que puede servir como introducción
 <../../presentacion.pdf>`.

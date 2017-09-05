@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -9,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Índice &mdash; documentación de Guia Sphinx - 1.0</title>
+  <title>Cómo editar &mdash; documentación de Guia Sphinx - 1.0</title>
   
 
   
@@ -34,9 +33,11 @@
 
   
         <link rel="index" title="Índice"
-              href="#"/>
+              href="genindex.html"/>
         <link rel="search" title="Búsqueda" href="search.html"/>
-    <link rel="top" title="documentación de Guia Sphinx - 1.0" href="index.html"/> 
+    <link rel="top" title="documentación de Guia Sphinx - 1.0" href="index.html"/>
+        <link rel="next" title="Alternativas" href="alternativas/inicio.html"/>
+        <link rel="prev" title="Método manual" href="recetas/manual.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -90,14 +91,19 @@
             
             
               <p class="caption"><span class="caption-text">Contenidos:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduccion.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="instalacion.html">Instalación y configuración</a></li>
 <li class="toctree-l1"><a class="reference internal" href="escribir.html">Escribir la documentación</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publicar.html">Publicar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ejemplos.html">Ejemplos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recetas/inicio.html">Recetas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="editando.html">Cómo editar</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cómo editar</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#instalacion">Instalacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editando">Editando</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#leyendo">Leyendo</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="alternativas/inicio.html">Alternativas</a></li>
 </ul>
 
@@ -143,12 +149,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Índice</li>
+      <li>Cómo editar</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/editando.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -160,11 +168,37 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-
-<h1 id="index">Índice</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="como-editar">
+<h1>Cómo editar<a class="headerlink" href="#como-editar" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Acá explico un poco cómo hacer para editar una documentación rápidamente.</p>
+<div class="section" id="instalacion">
+<h2>Instalacion<a class="headerlink" href="#instalacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Primero hay que instalar unos programas:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span>
+<span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">sphinx</span> <span class="n">sphinx_rtd_theme</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="editando">
+<h2>Editando<a class="headerlink" href="#editando" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Hay que editar los archivos <code class="docutils literal"><span class="pre">.rst</span></code> que están en la carpeta <code class="docutils literal"><span class="pre">docs/source/</span></code>,
+el formato se llama <em>ReStructured Text</em>, acá pongo links a algunos tutoriales:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">http://www.sphinx-doc.org/en/stable/rest.html</a></li>
+<li><a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickstart.html">http://docutils.sourceforge.net/docs/user/rst/quickstart.html</a></li>
+<li>La sección <a class="reference internal" href="escribir.html#guia-restructuredtext"><span class="std std-ref">sobre reStructuredText en esta guía</span></a></li>
+</ul>
+</div>
+<div class="section" id="leyendo">
+<h2>Leyendo<a class="headerlink" href="#leyendo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para poder leer la documentación hay que abrir <code class="docutils literal"><span class="pre">docs/build/html/index.html</span></code>.
+Si el archivo no existe o se hicieron modificaciones hay que volver a generar
+los <code class="docutils literal"><span class="pre">html</span></code> usando los comandos:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">docs</span>
+<span class="n">make</span> <span class="n">html</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -174,6 +208,15 @@
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="alternativas/inicio.html" class="btn btn-neutral float-right" title="Alternativas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="recetas/manual.html" class="btn btn-neutral" title="Método manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
