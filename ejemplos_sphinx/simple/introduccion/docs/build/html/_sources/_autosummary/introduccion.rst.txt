@@ -1,5 +1,0 @@
-introduccion
-============
-
-.. automodule:: introduccion
-    :members:

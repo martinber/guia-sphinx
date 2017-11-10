@@ -1,0 +1,596 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Escribir la documentación &mdash; documentación de Guia Sphinx - 1.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="genindex.html"/>
+        <link rel="search" title="Búsqueda" href="search.html"/>
+    <link rel="top" title="documentación de Guia Sphinx - 1.0" href="index.html"/>
+        <link rel="next" title="Publicar" href="publicar.html"/>
+        <link rel="prev" title="Instalación y configuración" href="instalacion.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Guia Sphinx
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduccion.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instalacion.html">Instalación y configuración</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Escribir la documentación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#guia-restructuredtext">Guía reStructuredText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pagina-principal">Página principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#otras-paginas">Otras páginas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#paginas-generadas-a-partir-de-docstrings">Páginas generadas a partir de <em>docstrings</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#apidoc">APIdoc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#autosummary">Autosummary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="publicar.html">Publicar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejemplos.html">Ejemplos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recetas/inicio.html">Recetas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editando.html">Cómo editar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alternativas/inicio.html">Alternativas</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Guia Sphinx</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Escribir la documentación</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/escribir.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="escribir-la-documentacion">
+<h1>Escribir la documentación<a class="headerlink" href="#escribir-la-documentacion" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Se escribe en los archivos <code class="docutils literal"><span class="pre">.rst</span></code> ubicados en <code class="docutils literal"><span class="pre">docs/source/</span></code>. Cada página se
+escribe en un archivo separado. Cada página puede importar documentación desde
+<em>docstrings</em> del código.</p>
+<p>La documentacíon se escribe con formato <a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a>, que tiene una
+sintaxis especial para describir texto en negrita, cursiva, etc. Además hay
+<em>directivas</em> para insertar imagenes, tablas, referencias, etc. Por ejemplo <code class="docutils literal"><span class="pre">..</span>
+<span class="pre">image::</span> <span class="pre">foto.jpeg</span></code>.</p>
+<p>Lo importante, es que cada página que va a estar en la web generada viene de un
+archivo <code class="docutils literal"><span class="pre">.rst</span></code>. Originalmente estas páginas solamente muestran lo que tienen
+escrito en ellas, si uno quiere incluir documentación desde <em>docstrings</em> se usan
+unas <em>directivas</em> que indican qué módulos/funciones/clases mostrar.</p>
+<p>Al final un archivo <code class="docutils literal"><span class="pre">.rst</span></code> se ve algo así:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Mi</span> <span class="n">Programa</span>
+<span class="o">===========</span>
+
+<span class="n">Esta</span> <span class="n">es</span> <span class="n">la</span> <span class="n">documentación</span> <span class="n">para</span> <span class="n">mi</span> <span class="n">programa</span><span class="o">.</span>
+
+<span class="n">Este</span> <span class="n">programa</span> <span class="n">sirve</span> <span class="n">para</span><span class="p">:</span>
+
+<span class="o">*</span> <span class="n">Hacer</span> <span class="n">algo</span>
+<span class="o">*</span> <span class="n">Hacer</span> <span class="n">otra</span> <span class="n">cosa</span>
+<span class="o">*</span> <span class="o">...</span>
+
+<span class="n">Documentación</span><span class="p">:</span>
+<span class="o">--------------</span>
+
+<span class="o">..</span> <span class="n">automodule</span><span class="p">::</span> <span class="n">prog</span><span class="o">.</span><span class="n">py</span>
+   <span class="p">:</span><span class="n">members</span><span class="p">:</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">..</span> <span class="pre">automodule::</span></code> es una <em>directiva</em>, se va a reemplazar por la documentación
+proveniente del módulo <code class="docutils literal"><span class="pre">prog.py</span></code>. <code class="docutils literal"><span class="pre">:members:</span></code> es una opción que indica que
+además de mostrar el <em>docstring</em> del módulo, se quiere mostrar la documentación
+de todas las clases y funciones que tiene dentro.</p>
+<p>Ahora convendría ver un poco como se usa <a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a>, una guía que
+explica como escribir <a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">es esta</a>.</p>
+<p>Para hacerlo más corto explico lo más importante acá:</p>
+<div class="section" id="guia-restructuredtext">
+<span id="id2"></span><h2>Guía reStructuredText<a class="headerlink" href="#guia-restructuredtext" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los saltos de línea (tecla <em>Enter</em>) son ignorados. La idea es que los párrafos
+están separados por una línea en blanco, los saltos de línea dentro de un
+párrafo no se ven en el resultado:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Lo que escribo:</td>
+<td>El resultado que veo:</td>
+</tr>
+<tr class="row-even"><td><div class="first last highlight-default"><div class="highlight"><pre><span></span><span class="n">Este</span> <span class="n">es</span> <span class="n">un</span>
+<span class="n">párrafo</span><span class="o">.</span>
+
+<span class="n">Este</span> <span class="n">es</span> <span class="n">otro</span> <span class="n">párrafo</span><span class="o">.</span>
+</pre></div>
+</div>
+</td>
+<td><p class="first">Este es un párrafo.</p>
+<p class="last">Este es otro párrafo.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Para hacer títulos hay que subrayar con algún signo de puntuación. La jerarquía
+de títulos depende del orden en el que se haya utilizado por primera vez ese
+estilo de subrayado. Los subrayados y su orden que recomiendo son:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Título</span> <span class="n">principal</span> <span class="n">de</span> <span class="n">la</span> <span class="n">página</span>
+<span class="o">=============================</span>
+
+<span class="n">Título</span> <span class="mi">1</span>
+<span class="o">--------</span>
+
+<span class="n">Título</span> <span class="mi">2</span>
+<span class="o">~~~~~~~~</span>
+
+<span class="n">Título</span> <span class="mi">3</span>
+<span class="o">^^^^^^^^</span>
+
+<span class="n">Título</span> <span class="mi">4</span>
+<span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span><span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+<p>Para distintos tipos de letra:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Lo que escribo:</td>
+<td>El resultado que veo:</td>
+</tr>
+<tr class="row-even"><td><div class="first last highlight-default"><div class="highlight"><pre><span></span>**negrita**, *cursiva*,
+``código``.
+</pre></div>
+</div>
+</td>
+<td><strong>negrita</strong>, <em>cursiva</em>,
+<code class="docutils literal"><span class="pre">código</span></code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Para hacer links hay varias formas, ya que está pongo las tres más fáciles:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Lo que escribo:</td>
+<td>El resultado que veo:</td>
+</tr>
+<tr class="row-even"><td><div class="first last highlight-default"><div class="highlight"><pre><span></span>`Git &lt;https://git-scm.com&gt;`_
+
+https://www.python.org/
+
+
+`Sphinx`__
+
+__ http://www.sphinx-doc.org
+</pre></div>
+</div>
+</td>
+<td><p class="first"><a class="reference external" href="https://git-scm.com">Git</a></p>
+<p><a class="reference external" href="https://www.python.org/">https://www.python.org/</a></p>
+<p class="last"><a class="reference external" href="http://www.sphinx-doc.org">Sphinx</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Para insertar imágenes:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">image</span><span class="p">::</span> <span class="o">./</span><span class="n">imagenes</span><span class="o">/</span><span class="n">imagen</span><span class="o">.</span><span class="n">jpg</span>
+</pre></div>
+</div>
+<p>Para escribir código fuente:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">::</span>
+
+  <span class="n">Lo</span> <span class="n">que</span> <span class="n">escribo</span> <span class="n">acá</span> <span class="n">se</span> <span class="n">ve</span> <span class="n">como</span> <span class="n">código</span> <span class="n">fuente</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>La identación recomendada es dos espacios, pero puede ser mayor. Por último para
+hacer listas:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Elemento</span> <span class="mi">1</span>
+
+<span class="o">*</span> <span class="n">Elemento</span> <span class="mi">2</span>
+
+  <span class="o">*</span> <span class="n">Elemento</span> <span class="mf">2.1</span>
+
+<span class="o">*</span> <span class="n">Elemento</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<p>Y lo más importante es incluir documentación desde <em>docstrings</em>, para ello:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">automodule</span><span class="p">:</span> <span class="n">miprograma</span><span class="o">.</span><span class="n">funciones</span>
+   <span class="p">:</span><span class="n">members</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>Eso incluye todo lo que hay en ese módulo (archivo <code class="docutils literal"><span class="pre">.py</span></code>). Para indicar la
+ruta al módulo se usa la misma sintaxis que la utilizada en <em>Python</em> para
+incluir módulos:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">include</span> <span class="n">miprograma</span><span class="o">.</span><span class="n">funciones</span>
+</pre></div>
+</div>
+<p>Ésta ruta es relativa a la carpeta que se haya agregado al <em>path</em> en
+<code class="docutils literal"><span class="pre">conf.py</span></code>. También hay directivas <code class="docutils literal"><span class="pre">autoclass</span></code>, <code class="docutils literal"><span class="pre">autofunction</span></code> para incluir
+documentación de forma más individual, pero no lo veo tan útil.</p>
+</div>
+<div class="section" id="pagina-principal">
+<h2>Página principal<a class="headerlink" href="#pagina-principal" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><em>Sphinx</em> crea automáticamente la página principal con el nombre dado en la
+configuración, en este caso elegimos <code class="docutils literal"><span class="pre">index.rst</span></code>. El archivo se ve así:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>.. Guia Sphinx documentation master file, created by
+   sphinx-quickstart on Thu May 11 20:34:32 2017.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Guia Sphinx&#39;s documentation!
+=======================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+</pre></div>
+</div>
+<p>Como lo indica el comentario ubicado en las primeras 4 líneas, la página
+principal debe tener una tabla de contenidos (la directiva <code class="docutils literal"><span class="pre">..</span> <span class="pre">toctree::</span></code>).
+Los índices que están abajo en las últimas líneas son opcionales.</p>
+<p>En la tabla de contenidos deben especificarse las páginas que uno quiera
+agregar dando el nombre de archivo sin la extensión. Por ejemplo:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
+   <span class="p">:</span><span class="n">maxdepth</span><span class="p">:</span> <span class="mi">3</span>
+   <span class="p">:</span><span class="n">caption</span><span class="p">:</span> <span class="n">Contenidos</span><span class="p">:</span>
+
+   <span class="n">introduccion</span>
+   <span class="n">instalacion</span>
+   <span class="n">escribir</span>
+   <span class="n">publicar</span>
+   <span class="n">ejemplos</span>
+   <span class="n">recetas</span><span class="o">/</span><span class="n">inicio</span>
+   <span class="n">alternativas</span><span class="o">/</span><span class="n">inicio</span>
+</pre></div>
+</div>
+<p>Todas las páginas deben ser agregadas manualmente, <em>Sphinx</em> muestra una
+advertencia cuando hay paginas inaccesibles debido que no han sido agregadas a
+ningún índice. Cada página puede tener su propia tabla de contenidos para así
+crear un árbol jerárquico de páginas.</p>
+<p>Los títulos y subtítulos de cada documento son incluidos automáticamente a la
+tabla de contenidos.</p>
+<p>En el caso de usar carpetas para ordenar los documentos, no sen ve reflejadas en
+el árbol de contenidos. Pero sí debe especificarse la ruta relativa al documento
+como se ve en la últimas dos líneas del ejemplo de arriba.</p>
+</div>
+<div class="section" id="otras-paginas">
+<h2>Otras páginas<a class="headerlink" href="#otras-paginas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Hay que acordarse de poner un título principal que será mostrado en la tabla de
+contenidos. Después de eso no hay nada más que sea obligatorio escribir.</p>
+<p>Se puede incluir una tabla de contenidos para agregar páginas que estarán debajo
+de este documento en la jerarquía, en la directiva no se incluye la opción
+<code class="docutils literal"><span class="pre">:caption:</span></code>. <code class="docutils literal"><span class="pre">:maxdepth:</span></code> es opcional:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
+
+   <span class="n">pagina1</span>
+   <span class="n">pagina2</span>
+</pre></div>
+</div>
+<p>Normalmente la directiva va justo debajo del título de la página, pero puede ir
+en cualquier lado.</p>
+<div class="section" id="paginas-generadas-a-partir-de-docstrings">
+<h3>Páginas generadas a partir de <em>docstrings</em><a class="headerlink" href="#paginas-generadas-a-partir-de-docstrings" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Lo único que tienen de especial estas páginas es que contienen directivas
+<code class="docutils literal"><span class="pre">autoclass</span></code>, <code class="docutils literal"><span class="pre">automodule</span></code>, <code class="docutils literal"><span class="pre">autofunction</span></code>, etc. Al generar la
+documentación, <em>Sphinx</em> importa esos módulos/clases/funciones, es por ello que
+en la configuración (<code class="docutils literal"><span class="pre">conf.py</span></code>) tuvimos que agregar la carpeta que contiene el
+código a <code class="docutils literal"><span class="pre">sys.path</span></code>.</p>
+<p>La estructura de la documentación no necesariamente refleja la estructura de
+carpetas que hay en el código fuente. Las directivas se pueden poner en
+cualquier página. Creo que algo cómodo y fácil es crear una página por módulo.</p>
+<p>Dentro del código fuente, la documentación de los <em>docstrings</em> debe estar
+escrita en <code class="docutils literal"><span class="pre">reStructuredText</span></code> puro, pero es recomendable usar la extensión
+<em>Napoleón</em> que ya instalamos y así escribir siguendo la convención <a class="reference external" href="http://www.sphinx-doc.org/en/stable/ext/example_google.html">Google
+Style</a>.</p>
+</div>
+</div>
+<div class="section" id="apidoc">
+<h2>APIdoc<a class="headerlink" href="#apidoc" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><a class="reference external" href="APIdoc">Sitio web</a></p>
+<p>Es un programa que te ahorra el trabajo de tener que crear un <code class="docutils literal"><span class="pre">.rst</span></code> para cada
+módulo y de poner en cada uno la directiva <code class="docutils literal"><span class="pre">automodule</span></code>. El problema es que
+genera demasiadas páginas para mi gusto. Prefiero en su lugar a la extensión
+<em>autosummary</em> que es más personalizable.</p>
+</div>
+<div class="section" id="autosummary">
+<h2>Autosummary<a class="headerlink" href="#autosummary" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Es una extensión que viene incluida en <a class="reference external" href="http://www.sphinx-doc.org/en/stable/">Sphinx</a> pero debe ser activada en
+<code class="docutils literal"><span class="pre">conf.py</span></code> al igual que las demás extensiones. Por lo tanto hay que acordarse
+de agregarla a la lista de extensiones:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx.ext.autodoc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;sphinx.ext.intersphinx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;sphinx.ext.todo&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;sphinx.ext.mathjax&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;sphinx.ext.napoleon&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;sphinx.ext.autosummary&#39;</span><span class="p">,</span> <span class="c1"># agregar</span>
+        <span class="s1">&#39;sphinx.ext.viewcode&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>De paso, también en <code class="docutils literal"><span class="pre">conf.py</span></code> hay que agregar (no importa dónde):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">autosummary_generate</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Esta extensión te ahorra el trabajo de tener que crear un <code class="docutils literal"><span class="pre">.rst</span></code> para cada
+módulo y de poner en cada uno la directiva <code class="docutils literal"><span class="pre">automodule</span></code>. Necesita que por
+medio de la directiva <code class="docutils literal"><span class="pre">autosummary</span></code> uno le dé una lista de
+módulos/clases/funciones a incluir, a partir de esa lista y de unas plantillas,
+<em>autosummary</em> va a crear un <code class="docutils literal"><span class="pre">.rst</span></code> para cada elemento.</p>
+<p>Entonces, la forma más fácil de trabajar es tener solamente <code class="docutils literal"><span class="pre">index.rst</span></code> y
+ningún archivo más. En <code class="docutils literal"><span class="pre">index.rst</span></code> se coloca la directiva <code class="docutils literal"><span class="pre">autosummary</span></code> con
+la lista de módulos. Al construir la documentación con <code class="docutils literal"><span class="pre">make</span> <span class="pre">html</span></code>,
+<em>autosummary</em> va a generar una carpeta llamada <code class="docutils literal"><span class="pre">docs/source/_autosummary</span></code> que
+contendrá a un <code class="docutils literal"><span class="pre">.rst</span></code> para cada módulo.</p>
+<p>El único problema es que la plantilla que viene por defecto no muestra mucha
+información, no queda otra que cambiarla. Entonces lo último que queda es crear
+un archivo <code class="docutils literal"><span class="pre">docs/source/_templates/autosummary/module.rst</span></code> y dentro poner lo
+que va a estar en la página de cada módulo.</p>
+<p>Yo hice una plantilla que creo que está bastante bien:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{{</span> <span class="n">fullname</span> <span class="p">}}</span>
+<span class="p">{{</span> <span class="n">underline</span> <span class="p">}}</span>
+
+<span class="o">..</span> <span class="n">currentmodule</span><span class="p">::</span> <span class="p">{{</span> <span class="n">fullname</span> <span class="p">}}</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">functions</span> <span class="o">%</span><span class="p">}</span>
+<span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">functions</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">..</span> <span class="n">rubric</span><span class="p">::</span> <span class="n">Functions</span>
+
+<span class="o">..</span> <span class="n">autosummary</span><span class="p">::</span>
+<span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">functions</span> <span class="o">%</span><span class="p">}</span>
+  <span class="p">{{</span> <span class="n">item</span> <span class="p">}}</span>
+<span class="p">{</span><span class="o">%-</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="o">%</span><span class="p">}</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">classes</span> <span class="o">%</span><span class="p">}</span>
+<span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">classes</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">..</span> <span class="n">rubric</span><span class="p">::</span> <span class="n">Classes</span>
+
+<span class="o">..</span> <span class="n">autosummary</span><span class="p">::</span>
+<span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">classes</span> <span class="o">%</span><span class="p">}</span>
+  <span class="p">{{</span> <span class="n">item</span> <span class="p">}}</span>
+<span class="p">{</span><span class="o">%-</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="o">%</span><span class="p">}</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">exceptions</span> <span class="o">%</span><span class="p">}</span>
+<span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">exceptions</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">..</span> <span class="n">rubric</span><span class="p">::</span> <span class="n">Exceptions</span>
+
+<span class="o">..</span> <span class="n">autosummary</span><span class="p">::</span>
+<span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">exceptions</span> <span class="o">%</span><span class="p">}</span>
+  <span class="p">{{</span> <span class="n">item</span> <span class="p">}}</span>
+<span class="p">{</span><span class="o">%-</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="o">%</span><span class="p">}</span>
+
+<span class="o">..</span> <span class="n">automodule</span><span class="p">::</span> <span class="p">{{</span> <span class="n">fullname</span> <span class="p">}}</span>
+   <span class="p">:</span><span class="n">members</span><span class="p">:</span>
+   <span class="p">:</span><span class="n">private</span><span class="o">-</span><span class="n">members</span><span class="p">:</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Al hacer <code class="docutils literal"><span class="pre">make</span> <span class="pre">html</span></code> se genera un <code class="docutils literal"><span class="pre">.rst</span></code> para cada módulo en
+<code class="docutils literal"><span class="pre">docs/source/_autosummary</span></code> pero no se actualizan los ya existentes en el
+caso de por ejemplo cambiar la plantilla. Entonces a veces hace falta borrar
+la carpeta <code class="docutils literal"><span class="pre">docs/source/_autosummary</span></code> para que se vean reflejados todos los
+cambios.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="publicar.html" class="btn btn-neutral float-right" title="Publicar" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="instalacion.html" class="btn btn-neutral" title="Instalación y configuración" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Martín Bernardi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
