@@ -6,7 +6,7 @@ Sobre documentar desde docstrings
 
 Hice varios ejemplos (6 en total) para :download:`descargar
 <../../ejemplos_sphinx.zip>`. Hay dos para :ref:`cada forma de documentar
-<tipos_receta>`:
+<tipos_receta>` explicada en la página de :doc:`Recetas <recetas/inicio>`:
 
 * Receta simple: Se incluyen los *docstrings* directamente en ``index.rst``,
   estos ejemplos no siguen la :ref:`estructura de archivos recomendada
