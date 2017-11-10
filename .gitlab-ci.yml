@@ -1,0 +1,13 @@
+image: sphinx
+
+pages:
+  script:
+  - cd docs/
+  - make html
+  - mv ./build/html/ ../public/
+  - cd ../
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
