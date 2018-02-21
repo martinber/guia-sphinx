@@ -13,7 +13,7 @@ Ir a la carpeta del proyecto y ejecutar ``sphinx-quickstart``.
 
 ::
 
-  cd batch_ffmpeg
+  cd miproyecto
   sphinx-quickstart
 
 Va a ir preguntando algunas opciones, usar:
